@@ -132,6 +132,7 @@ article {
 
 .grid a {
     overflow: hidden;
+	position: relative;
 
     width: 38%;
 	padding-bottom: 38%;
@@ -142,10 +143,23 @@ article {
 	display: inline-block;
 	margin:1%;
 	margin-top: -4%;
+	
+	/* outline:5px solid #e65f54; */ */
+}
+
+.grid a::after {
+    content: '';
+    position: absolute;
+	border-radius: 50%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 10px solid #e65f54;
 }
 
 .grid a:nth-child(4n+3) {
-	margin-left: 21%;
+	margin-left: 20.5%;
 }
 
 .grid a:nth-child(4n+5) {
