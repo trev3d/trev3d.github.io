@@ -143,8 +143,6 @@ article {
 	display: inline-block;
 	margin:1%;
 	margin-top: -4%;
-	
-	/* outline:5px solid #e65f54; */ */
 }
 
 .grid a::after {
@@ -156,6 +154,7 @@ article {
     bottom: 0;
     left: 0;
     border: 10px solid #e65f54;
+	outline:2px solid #e65f54;
 }
 
 .grid a:nth-child(4n+3) {
