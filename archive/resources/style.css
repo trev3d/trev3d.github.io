@@ -1,0 +1,167 @@
+@font-face {
+	font-family: din;
+	src: url('/resources/Bahnschrift.ttf');
+}
+
+@font-face {
+	font-family: body;
+	src: url('/resources/CrimsonText-Regular.ttf');
+}
+
+.nav {
+	height: 100%;
+	width: 160px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	font-family: Bahnschrift, din;
+	font-size: 25px;
+}
+
+.nav .links {
+	padding-left: 20px;
+}
+
+.nav .links *{
+	padding: 0px;
+	padding-bottom: 10px;
+	display: block;
+}
+
+.nav a:hover {
+	color: #f1f1f1;
+}
+
+.nav #emblem{
+	margin: 0;
+	width:160px;
+	height:160px;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 22px;
+    left: 160px;
+    right: 0px;
+    position: absolute;
+    font-family: body;
+}
+
+.content {
+    max-width: 800px;
+}
+
+h1{
+	font-weight:normal;
+	font-family: Bahnschrift, din;
+	font-size: 60px;
+	margin-top: 80px;
+	color: #FEE400;
+}
+
+h2{
+	font-weight:normal;
+	font-family: din;
+	font-size: 30px;
+}
+
+@media screen and (max-width: 700px) {
+    .nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding:0px;
+        padding-top:20px;
+    }
+    
+    .nav .links {
+       	padding-left: 0px;
+    }
+
+    .nav .links * {
+       	display: inline;
+        margin:0px;
+        margin-right: 10px;
+    }
+    
+    .nav .links p {
+       	display: block;
+        margin:0px;
+        margin-bottom: 20px;
+    }
+
+    .nav #emblem{
+        display:none;
+    }
+
+    body{
+        left: 0px;
+    }
+    
+    h1{
+    	margin-top:10px;
+    	font-size: 40px;
+    }
+    
+    h2{
+    	font-size: 20px;
+    }
+}
+
+.grid {
+	line-height: 0;
+	columns: 300px;
+	column-gap: 0px;
+	padding: 0;
+	margin-top:40px;
+	width:100%;
+}
+
+@supports (display: grid) {
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		padding: 0;
+		margin-top:40px;
+		width:100%;
+	}
+	.grid a{
+		width:100%;
+		height: 0;
+		padding-bottom: 100%;
+		display: block;
+	}
+
+	.griditem{
+		width:100%;
+		height: 0;
+		padding-bottom: 100%;
+		display: block;
+	}
+}
+
+video {
+	width: 100%;
+}
+
+img {
+	width: 100%;
+}
+
+a{
+	color: #FEE400;
+	border-width: 0px;
+}
+
+#view {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	padding: 0;
+}

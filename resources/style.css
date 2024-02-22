@@ -1,0 +1,196 @@
+@font-face {
+    font-family: title;
+    src: url('/resources/SpaceMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: body;
+    src: url('/resources/NanumMyeongjo-Regular.ttf');
+}
+
+html {
+    margin: 0 auto;
+    max-width: 1200px;
+
+    height: 100%;
+
+    background-color: #2a2622;
+}
+
+h1 {
+    font-weight: normal;
+    font-family: title, sans-serif;
+    font-size: 60px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-weight: normal;
+    font-family: title, sans-serif;
+    font-size: 30px;
+}
+
+h3 {
+    font-weight: normal;
+    font-family: body, serif;
+    font-size: 30px;
+}
+
+body {
+    font-size: 20px;
+    font-family: body, serif;
+    color: #FFFFFF;
+    padding: 50px 25px 25px 25px;
+    margin:0;
+    line-height: 2;
+}
+
+li {
+	padding-bottom: 5pt;
+}
+
+video {
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    color: #e65f54;
+}
+
+a:hover {
+    color: #fee400;
+}
+
+nav {
+    top: 0;
+    text-align: center;
+
+    font-family: title, sans-serif;
+    font-size: 30px;
+
+	width: 150px;
+    top: 50px;
+    bottom: 0;
+
+    color: #2a2622;
+
+    position: fixed;
+}
+
+nav a {
+    color: #ffffff;
+	text-decoration: none;
+}
+
+nav a:hover {
+    color: #fee400;
+}
+
+nav ul {
+    margin: 0;
+    line-height: 1;
+    padding: 0 15px;
+    list-style-type: none;
+}
+
+nav li {
+    padding-bottom: 15pt;
+}
+
+#nav-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    position: relative;
+
+    width: 100%;
+    max-height: 100%;
+
+    background-color: #e65f54;
+    border-radius: 100px 100px 10px 10px;
+}
+
+article {
+    margin-left: 175px;
+}
+
+.grid {
+    padding: 0;
+    width: 100%;
+	margin: 0 auto;
+}
+
+.grid::after {
+	content: “”;
+	display: block;
+	clear: both;
+}
+
+.grid a {
+    overflow: hidden;
+
+    width: 38%;
+	padding-bottom: 38%;
+    height: 0;
+	float: left;
+	
+	border-radius: 50%;
+	display: inline-block;
+	margin:1%;
+	margin-top: -4%;
+}
+
+.grid a:nth-child(4n+3) {
+	margin-left: 21%;
+}
+
+.grid a:nth-child(4n+5) {
+	clear:left;
+}
+
+@media screen and (max-width: 700px) {
+
+    h1 {
+        font-size: 45px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    article {
+        margin-left: auto;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .grid {
+        grid-template-columns: auto;
+    }
+}
+
+.grid-hover-label {
+    position: absolute;
+    color: #e65f54;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 200px 30px 30px;
+
+    font-family: title, sans-serif;
+    font-size: 30px;
+    margin: 0;
+    opacity: 0;
+    text-decoration: underline;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.9) 200px);
+}
+
+.grid a:hover .grid-hover-label {
+    opacity: 1;
+}

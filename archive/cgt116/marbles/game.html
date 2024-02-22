@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marble Madness game</title>
+</head>
+<body style="margin: 0px;">
+
+        <canvas id="unity-canvas" width=960 height=600 style="width: 100vw; height: 100vh; position: fixed; background: #231F20"></canvas>
+        <script src="marbles build.loader.js"></script>
+        <script>
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "/cgt116/marbles/marbles build.data",
+        frameworkUrl: "/cgt116/marbles/marbles build.framework.js",
+        codeUrl: "/cgt116/marbles/marbles build.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "marbles",
+        productVersion: "0.1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+
+        </script>
+
+</body>
+</html>
