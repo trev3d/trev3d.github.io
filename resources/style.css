@@ -157,6 +157,11 @@ article {
 	outline:2px solid #e65f54;
 }
 
+.grid a:hover::after {
+    border: 10px solid #fee400;
+	outline:2px solid #fee400;
+}
+
 .grid a:nth-child(4n+3) {
 	margin-left: 20.5%;
 }
