@@ -118,6 +118,18 @@ article {
     margin-left: 175px;
 }
 
+.horizontal-container {
+	overflow: hidden;
+	position: relative;
+}
+
+.software-icon {
+	float: left;
+	max-width: 64px;
+	max-height: 64px;
+	display: block;
+}
+
 .grid {
     padding: 0;
     width: 100%;
