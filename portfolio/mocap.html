@@ -19,6 +19,10 @@
 	<div class="horizontal-container">
 		<img class="software-icon" src="/resources/icons/blender.png">
 		<img class="software-icon" src="/resources/icons/unity.png">
+		<img class="software-icon" src="/resources/icons/motive.png">
+		<img class="software-icon" src="/resources/icons/meta.png">
+		<img class="software-icon" src="/resources/icons/polyhaven.png">
+		<img class="software-icon" src="/resources/icons/ambientcg.png">
 	</div>
 	<h3>Combining VR and full-body motion capture for highly physical virtual experiences.</h3>
 	
@@ -30,16 +34,25 @@
 			allowfullscreen></iframe>
 			
 	<p>
-		This is a work-in-progress demo of a colocated VR multiplayer dueling game.
-		Two players face off with physical foam swords inside of a motion capture setup.
-		The capture data is streamed to the headsets to create visuals that match up
-		spatially to what is happening in real life.
+		This is a work-in-progress VR multiplayer sword dueling game.
+		Two players face off with physical foam swords on a motion capture stage.
+		The capture data is streamed to the VR headsets to drive visuals that align 
+		with the real world.
 	</p>
+	
+	<iframe style="width: 100%; aspect-ratio: 16/9;"
+			src="https://www.youtube.com/embed/b65-xRNqHeQ"
+			title="YouTube video player"
+			allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+			frameborder="0"
+			allowfullscreen></iframe>
+	
 	<p>
-		While I would love to show this game in action, the motion capture system
-		I am currently borrowing is currently configured for another project.
-		This demo video shows previously recorded data streamed from Motive
-		into Unity.
+		I am using an OptiTrack system streaming data to a modified version of
+		the official OptiTrack Unity plugin for 1:1 skeletal tracking. 
+		In this example a friend and I swing tracked foam swords at each other
+		which drives the lightsabers. 
+		Skeletal tracking is not visible in this test.
 	</p>
 	
 	<a href="mocap/scene1.png" target="_blank"><img src="mocap/scene1.png"></a>
@@ -47,8 +60,7 @@
 	<p>
 		I used several CC0 assets from <a href="polyhaven.com" target="_blank">PolyHaven.com</a>
 		and <a href="ambientcg.com" target="_blank">AmbientCG.com</a> to create a generic
-		lava planet. A scrolling noise offset to the lava river's UVs gives the backdrop
-		some life.
+		lava planet.
 	</p>
 	
 	<a href="mocap/scene2.png" target="_blank"><img src="mocap/scene2.png"></a>
