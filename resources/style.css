@@ -120,15 +120,25 @@ article {
 
 .horizontal-container {
 	overflow: hidden;
-	position: relative;
+	border-radius: 10px;
+	box-shadow: inset 0 2px 5px #000000;
+	background-color:#594d47;
+	padding: 10px;
+	width: fit-content;
 }
 
 .software-icon {
-	float: left;
-	max-width: 64px;
-	max-height: 64px;
-	display: block;
-	background-color:#594d47;
+	width: 1em;
+	height: 1em;
+	display: inline;
+	vertical-align: baseline;
+}
+
+.webvid {
+	width: 100%; 
+	aspect-ratio: 16/9;
+	border: none;
+	position: relative;
 }
 
 .grid {
