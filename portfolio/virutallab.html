@@ -36,19 +36,8 @@
 	<p>
 		This is a virtual lab project led by Purdue University Prof. Stylianos Chatzidakis.
 		It increases accessibility to curriculum-necessary radiation spectrum analysis equipment
-		with a virtual web-based lab space.
-		Built on Unity, I'm responsible for most visuals and scripting.
-	</p>
-	
-	<a href="virtuallab/Screenshot_1.png" target="_blank"><img src="virtuallab/Screenshot_1.png"></a>
-	
-	<p>
-		I collaborated with Prof. Chatzidakis and his team to
-		model the equipment in code.
-		Inputs & outputs are fully simulated and everything interacts realistically.
-		The program is therefore a flexible 'sandbox' and will deal with any 
-		arrangements the user may configure.
-		This modularity also makes it easy to add new equipment in the future.
+		with a web-simulated lab space.
+		Built on Unity, I'm responsible for nearly all visuals and scripting.
 	</p>
 	
 	<iframe class="webvid" src="virtuallab/tbexport.html"></iframe>
@@ -56,14 +45,11 @@
 	<p>
 		A lot of care went into the visuals and user interaction to teach
 		students how to properly use the equipment. 
-		Users don't interface with 2D abstractions of the equipment but instead 
+		Users don't interface with 2D abstractions of this equipment but instead 
 		press buttons, flip switches, and turn knobs on accurate 3D representations. 
-		I decorated the tools with the same labels, stickers, stains, 
+		I decorated these with the same labels, stickers, stains, 
 		and scratches that grace their real counterparts.
 	</p>
-	
-	<a href="virtuallab/wire2.png" target="_blank"><img src="virtuallab/wire2.png"></a>
-	
 	<p>
 		The program runs in a browser and is optimized for even low-spec devices
 		such as Chromebooks and tablets.
@@ -71,24 +57,43 @@
 		The program's load size is shy of 50mb.
 	</p>
 	
+	<a href="virtuallab/Screenshot_1.png" target="_blank"><img src="virtuallab/Screenshot_1.png"></a>
+	
+	<p>
+		I collaborated with Prof. Chatzidakis and his team to
+		simulate the equipment via Unity scripting.
+		The program is a flexible 'sandbox' that will deal with any 
+		arrangements the user may configure.
+		Inputs & outputs are fully simulated and everything interacts realistically.
+		Tools are modular scripts, 
+		making it easy to expand the lab with new equipment in the future.
+	</p>
+	<p>
+		A lot of thought went into this program's architecture, 
+		leading to modular systems that communicate through delegates and Unity events.
+		I've already reused many of them for other virtual lab projects
+		because of how modular these systems are.
+		Only a fraction of these scripts are truly specific to this virtual lab 
+		and couldn't be useful in other projects.
+	</p>
+	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
 	
 	<p>
-		Because of its modular nature, I am continuing to collaborate
-		with Prof. Chatzidakis and his team to expand the lab to include
-		more tools and cover more of his curriculum.
+		I am continuing to collaborate with Prof. Chatzidakis and his team 
+		to expand the lab with more equipment and to cover more of his curriculum.
 		I am also working on detailed documentation so that
-		other developers can build off of it in the future.
+		other developers may start building off of it.
 	</p>
 	
 	<a href="virtuallab/Screenshot_3.png" target="_blank"><img src="virtuallab/Screenshot_3.png"></a>
 	
 	<p>
-		While a lot of the lab is bespoke, including its cable system, object interaction,
-		and UI, I still leveraged a few third party assets. 
+		While a lot of the lab is bespoke, including its plug & port system, object interaction,
+		graphing tools and UI, I still used several third party assets. 
 		The cable dynamics come from 
 		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>,
-		and the radioactive source container comes from 
+		and the radioactive source container model comes from 
 		<a href="https://polyhaven.com/a/Barrel_01" target="_blank">PolyHaven</a>.
 		The lab is built in Unity and most of the visuals were done in Blender, Substance Painter,
 		Marmoset Toolbag, and Affinity Designer.

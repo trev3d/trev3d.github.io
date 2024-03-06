@@ -5,9 +5,14 @@
     <title></title>
     <script src="https://viewer.marmoset.co/main/marmoset.js"></script>
 </head>
-<body>
+<body style="margin:0; padding:0;">
     <script>
-        marmoset.embed( 'tbexport.mview', { autoStart: false, fullFrame: true, pagePreset: false } );
+		marmoset.largeUI = true;
+		var viewer = new marmoset.WebViewer(window.innerWidth , window.innerHeight , 'tbexport.mview');
+		document.body.appendChild(viewer.domRoot);
+		viewer.stripData.selectedStrip = -1;
+		
+		addEventListener("resize", (event) => {viewer.resize(window.innerWidth , window.innerHeight);});
     </script>
 </body>
 </html>
