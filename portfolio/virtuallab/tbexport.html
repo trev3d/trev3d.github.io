@@ -8,9 +8,24 @@
 </head>
 <body style="margin:0; padding:0;">
     <script>
+	
 		marmoset.largeUI = true;
 		marmoset.transparentBackground = true;
-		var viewer = marmoset.embed('tbexport.mview', { fullFrame: true, autoStart: false });
+		
+		var viewer = marmoset.embed('tbexport.mview', { fullFrame: true });
+		
+		
+		viewer.ui.showActiveView = (function() {
+			var og = viewer.ui.showActiveView;
+
+			return function() {
+				og.apply(this);
+				
+				viewer.ui.helpOverlay.toggle();
+			};
+		})();
+		
+		viewer.loadScene();
     </script>
 	
 	
