@@ -95,7 +95,7 @@ a:hover {
 #navframe {
 	position:fixed; 
 	height:100%;
-	width: 150px;
+	width: 152px;
 	top:0;
 }
 
@@ -203,12 +203,10 @@ article {
     bottom: 0;
     left: 0;
     border: 10px solid #e65f54;
-	outline:10px solid #e65f54;
 }
 
 .grid a:hover::after {
     border: 20px solid #fee400;
-	outline:10px solid #fee400;
 }
 
 .grid a:nth-child(4n+3) {
@@ -267,7 +265,6 @@ article {
 	
 	.grid a::after {
 		border:5px solid #e65f54;
-		outline:10px solid #e65f54;
 	}
 	
 	
