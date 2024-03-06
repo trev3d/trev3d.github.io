@@ -9,16 +9,13 @@
 <body style="margin:0; padding:0;">
     <script>
 		marmoset.largeUI = true;
-		var viewer = new marmoset.WebViewer(window.innerWidth , window.innerHeight - 50, 'tbexport.mview');
-		document.body.appendChild(viewer.domRoot);
-		viewer.loadScene();
-		
-		addEventListener("resize", (event) => {viewer.resize(window.innerWidth , window.innerHeight - 50);});
+		marmoset.transparentBackground = true;
+		var viewer = marmoset.embed('tbexport.mview', { fullFrame: true, autoStart: true });
     </script>
 	
 	
-	<div style="position:absolute; width:100%; height: 50px; text-align: center; 
-	line-height:50px; font-size:25px; font-family:title;">
+	<div style="position:absolute; width:100%; height: 50px; bottom:0; text-align: center; 
+	line-height:50px; font-size:25px; font-family:title; background-color:#000000DD;">
 		Interactive 3D view:
 		<a onclick="viewer.stripData.selectedStrip = -2; viewer.wake();">Color</a> | 
 		<a onclick="viewer.stripData.selectedStrip = 4; viewer.wake();">Wireframe</a>
