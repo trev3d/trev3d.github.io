@@ -43,6 +43,7 @@ body {
     padding: 50px 25px 25px 25px;
     margin:0;
     line-height: 2;
+	overflow-x: hidden;
 }
 
 li {
@@ -51,6 +52,10 @@ li {
 
 video {
     width: 100%;
+}
+
+iframe {
+	border: none;
 }
 
 img {
@@ -65,8 +70,40 @@ a:hover {
     color: #fee400;
 }
 
+#navmobile {
+	display: none;
+	width: 80px;
+	left: 0;
+	right: 0;
+	height: 50px;
+	margin: 0;
+	padding: 5px 25px 10px 25px;
+	top: 0;
+	position:fixed;
+	color: #ffffff;
+	background-color: #e65f54;
+	font-size:25px; 
+	font-family:title;
+	z-index: 99 !important;
+	border-radius: 0 0 50px 0;
+}
+
+#navmobile a {
+	color: #ffffff;
+}
+
+#navframe {
+	position:fixed; 
+	height:100%;
+	width: 150px;
+	top:0;
+}
+
 nav {
-    top: 0;
+	margin:auto;
+	padding:0;
+	position:relative;
+	
     text-align: center;
 
     font-family: title, sans-serif;
@@ -74,11 +111,14 @@ nav {
 
 	width: 150px;
     top: 50px;
-    bottom: 0;
 
     color: #2a2622;
-
-    position: fixed;
+	
+	overflow-y: auto;
+    overflow-x: hidden;
+	
+	background-color: #e65f54;
+    border-radius: 100px 100px 10px 10px;
 }
 
 nav a {
@@ -101,21 +141,42 @@ nav li {
     padding-bottom: 15pt;
 }
 
-#nav-content {
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    position: relative;
-
-    width: 100%;
-    max-height: 100%;
-
-    background-color: #e65f54;
-    border-radius: 100px 100px 10px 10px;
-}
-
 article {
     margin-left: 175px;
+}
+
+@media screen and (max-width: 700px) {
+
+    h1 {
+        font-size: 45px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    article {
+        margin-left: auto;
+    }
+
+    #navframe {
+        display: none;
+    }
+
+    .grid {
+        grid-template-columns: auto;
+    }
+	
+	#navmobile {
+		display: block;
+	}
+	
+	
+	/*body::before {
+		display:block;
+		content: '';
+		height:50px;
+	}*/
 }
 
 .horizontal-container {
@@ -137,7 +198,6 @@ article {
 .webvid {
 	width: 100%; 
 	aspect-ratio: 16/9;
-	border: none;
 	position: relative;
 }
 
@@ -191,29 +251,6 @@ article {
 
 .grid a:nth-child(4n+5) {
 	clear:left;
-}
-
-@media screen and (max-width: 700px) {
-
-    h1 {
-        font-size: 45px;
-    }
-
-    h2 {
-        font-size: 30px;
-    }
-
-    article {
-        margin-left: auto;
-    }
-
-    nav {
-        display: none;
-    }
-
-    .grid {
-        grid-template-columns: auto;
-    }
 }
 
 .grid-hover-label {
