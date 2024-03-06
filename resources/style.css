@@ -44,6 +44,7 @@ body {
     margin:0;
     line-height: 2;
 	overflow-x: hidden;
+	margin-bottom:100px;
 }
 
 li {
@@ -171,6 +172,8 @@ article {
     padding: 0;
     width: 100%;
 	margin: 0 auto;
+	clear:both;
+	overflow:auto;
 }
 
 .grid::after {
