@@ -10,12 +10,12 @@
     <script>
 	
 		// marmoset.largeUI = true;
-		marmoset.transparentBackground = true;
+		// marmoset.transparentBackground = true;
 		
 		var viewer = marmoset.embed('tbexport.mview', { fullFrame: true });
 		
 		
-		viewer.ui.showActiveView = (function() {
+		/* viewer.ui.showActiveView = (function() {
 			var og = viewer.ui.showActiveView;
 
 			return function() {
@@ -23,7 +23,7 @@
 				
 				viewer.ui.helpOverlay.toggle();
 			};
-		})();
+		})(); */
 		
 		viewer.loadScene();
     </script>
