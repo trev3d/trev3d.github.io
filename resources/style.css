@@ -44,7 +44,7 @@ body {
     margin:0;
     line-height: 2;
 	overflow-x: hidden;
-	margin-bottom:100px;
+	margin-bottom:10	0px;
 }
 
 li {
@@ -111,7 +111,6 @@ nav {
     font-size: 30px;
 
 	width: 150px;
-    top: 50px;
 
     color: #2a2622;
 	
