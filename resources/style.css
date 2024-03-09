@@ -103,6 +103,7 @@ a:hover {
 nav {
 	margin:auto;
 	padding:0;
+	margin:50px auto 50px auto;
 	position:relative;
 	
     text-align: center;
