@@ -13,8 +13,6 @@ html {
     max-width: 1200px;
 
     height: 100%;
-
-    background-color: #2a2622;
 }
 
 h1 {
@@ -44,23 +42,24 @@ body {
     margin:0;
     line-height: 2;
 	overflow-x: hidden;
+	background-color: #2a2622;
 }
 
 li {
 	padding-bottom: 5pt;
 }
 
-/* video {
+video {
     width: 100%;
-} */
+}
+
+img {
+    width: 100%;
+}
 
 iframe {
 	border: none;
 }
-
-/* img {
-    width: 100%;
-} */
 
 a {
     color: #e65f54;
@@ -233,6 +232,20 @@ article {
 	clear:left;
 }
 
+#backgroundGlyph {
+	position:fixed;
+	width:700px;
+	height:700px;
+	//top:0;
+	bottom:-80px;
+	left:0px;
+	opacity:1%;
+	background-image:url('/resources/dog cropped.svg');
+	background-position: left bottom; /* Center the image */
+	background-repeat: no-repeat;
+	z-index:-100;
+}
+
 /* .circlesPacked-hover-label { */
     /* position: absolute; */
     /* color: #e65f54; */
@@ -284,6 +297,13 @@ article {
 		padding-right:10px;
 	}
 	
+	#backgroundGlyph {
+		position:fixed;
+		width:100%;
+		bottom:-20px;
+		left:0px;
+		opacity:2%;
+	}
 	
 	/*body::before {
 		display:block;
