@@ -10,9 +10,7 @@
 
 html {
     margin: 0 auto;
-    max-width: 1200px;
-
-    height: 100%;
+	max-width: 1000px;
 }
 
 h1 {
@@ -161,9 +159,17 @@ article {
 }
 
 .webvid {
-	width: 100%; 
-	aspect-ratio: 16/9;
-	position: relative;
+	width:100%;
+	padding:56.25% 0 0 0;
+	position:relative;
+}
+
+.webvid * {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
 }
 
 .circlesPacked {
@@ -180,7 +186,7 @@ article {
 	clear: both;
 }
 
-.circlesPacked a {
+.packedCircle {
 	overflow: hidden;
 	position: relative;
 
@@ -197,16 +203,31 @@ article {
 	background-color:#e65f54;
 }
 
-.circlesPacked a:hover {
+.packedCircle:hover {
 	background-color:#fee400;
 }
 
-.circlesPacked a * {
-	position:relative;
-	margin:5% 5%;
-	width: 90%;
-	margin-bottom: 90%;
-	border-radius: 50%;
+.thumbnail {
+	width:90%;
+	height:90%;
+	left:5%;
+	top:5%;
+	position:absolute;
+	border-radius:50%;
+	line-height: 90%;
+}
+
+.thumbtext {
+	font-family:title;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	text-align:center;
+	background-color: #00000080;
+}
+
+.packedCircle:hover .thumbtext {
+	display: flex;
 }
 
 /*.circlesPacked .packedCircle::after {
@@ -300,9 +321,14 @@ article {
 	#backgroundGlyph {
 		position:fixed;
 		width:100%;
-		bottom:-20px;
-		left:0px;
+		
+		bottom:0;
+		left:-15%;
 		opacity:2%;
+	}
+	
+	.verticalvid {
+		padding:100% 0 0 0;
 	}
 	
 	/*body::before {
