@@ -45,6 +45,7 @@ body {
 	overflow-x: hidden;
 	background-color: #2a2622;
 	background-image:url('/resources/paper.png');
+	background-attachment: fixed;
 }
 
 li {
@@ -127,7 +128,7 @@ nav {
     border-radius: 100px 100px 10px 10px;
 }
 
-nav, #navmobile, .packedCircle {
+nav, #navmobile {
 	box-shadow: inset 1px 2px 0 #FFFFFF30, inset -1px -2px 0 #00000050, 0px 10px 20px #00000050;
 }
 
@@ -197,7 +198,8 @@ article {
 	margin:1%;
 	margin-top: -4%;
 	
-	background-color:#e65f54;
+	background-color:#00000020;
+	box-shadow: inset 1px 2px 0 #FFFFFF10, inset -1px -2px 0 #00000030;
 }
 
 .packedCircle:hover {
