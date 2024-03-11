@@ -52,8 +52,23 @@ li {
 	padding-bottom: 5pt;
 }
 
-video, img {
+article > img, article > a > img, article > .webvid {
     width: 100%;
+	margin:20px 0;
+}
+
+.webvid {
+	padding:56.25% 0 0 0;
+	position:relative;
+	background-color:black;
+}
+
+.webvid * {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
 }
 
 iframe {
@@ -157,21 +172,6 @@ article {
 	height: 1em;
 	display: inline;
 	vertical-align: baseline;
-}
-
-.webvid {
-	width:100%;
-	padding:56.25% 0 0 0;
-	position:relative;
-	background-color:black;
-}
-
-.webvid * {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
 }
 
 .circlesPacked {
