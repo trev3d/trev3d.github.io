@@ -300,10 +300,14 @@ article {
 	h3 {
         font-size: 25px;
     }
-
-    article {
-        margin-left: auto;
-    }
+	
+	article {
+		margin-left:0;
+	}
+	
+	article p, h1, h2, h3 {
+		padding:0 10px 0 10px;
+	}
 
     #navframe {
         display: none;
@@ -314,9 +318,11 @@ article {
 	}
 	
 	body {
-		padding-left:10px;
-		padding-right:10px;
+		padding-left:0px;
+		padding-right:0px;
 	}
+	
+	
 	
 	#backgroundGlyph {
 		position:fixed;
