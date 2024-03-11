@@ -175,13 +175,12 @@ article {
 }
 
 .circlesPacked {
-    padding: 0;
+	padding:0;
+	margin:-75px -50px;
+	padding:100px 50px;
     /* width: 100%; */
 	/* margin: 0 auto; */
-	padding: 50px 0;
-	/* clear:both; */
-	overflow:auto;
-	overflow:visible;
+	overflow: auto;
 }
 
 .packedCircle {
@@ -194,7 +193,7 @@ article {
 	float: left;
 	
 	border-radius: 50%;
-	display: inline-block;
+	display: inline;
 	margin:1%;
 	margin-top: -4%;
 	
@@ -204,7 +203,7 @@ article {
 
 .packedCircle:hover {
 	background-color:#FFFFFF;
-	box-shadow: 0px 0px 30px #fee400;
+	box-shadow: 0px 0px 50px #fee400;
 }
 
 .packedCircle .thumbnail {
