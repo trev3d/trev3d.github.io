@@ -13,17 +13,21 @@ html {
 	max-width: 1000px;
 }
 
+h1, h2, h3 {
+	font-weight: normal;
+    font-family: title, sans-serif;
+}
+
 h1 {
     font-size: 60px;
     line-height: 1.2;
 }
 
-h1, h2 {
-    font-family: title, sans-serif;
+h2 {
+    font-size: 30px;
 }
 
 h3 {
-    font-weight: normal;
     font-family: body, serif;
     font-size: 30px;
 }
@@ -40,6 +44,7 @@ body {
     line-height: 2;
 	overflow-x: hidden;
 	background-color: #2a2622;
+	background-image:url('/resources/paper.png');
 }
 
 li {
@@ -85,8 +90,10 @@ a:hover {
 #navframe {
 	position:fixed; 
 	height:100%;
-	width: 152px;
+	width: 200px;
+	margin-left:-25px;
 	top:0;
+	overflow:visible;
 }
 
 .viewerOptions {
@@ -120,6 +127,10 @@ nav {
     border-radius: 100px 100px 10px 10px;
 }
 
+nav, #navmobile, .packedCircle {
+	box-shadow: inset 1px 2px 0 #FFFFFF30, inset -1px -2px 0 #00000050, 0px 10px 20px #00000050;
+}
+
 nav a {
     color: #ffffff;
 	text-decoration: none;
@@ -151,6 +162,7 @@ article {
 	width:100%;
 	padding:56.25% 0 0 0;
 	position:relative;
+	background-color:black;
 }
 
 .webvid * {
@@ -168,6 +180,7 @@ article {
 	padding: 50px 0;
 	/* clear:both; */
 	overflow:auto;
+	overflow:visible;
 }
 
 .packedCircle {
@@ -188,7 +201,8 @@ article {
 }
 
 .packedCircle:hover {
-	background-color:#fee400;
+	background-color:#FFFFFF;
+	box-shadow: 0px 0px 30px #fee400;
 }
 
 .packedCircle .thumbnail {
@@ -207,7 +221,8 @@ article {
 	justify-content: center;
 	align-items: center;
 	text-align:center;
-	background-color: #00000080;
+	background-color: #00000090;
+	backdrop-filter: blur(5px);
 }
 
 .packedCircle:hover .thumbtext {
