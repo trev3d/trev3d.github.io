@@ -14,16 +14,12 @@ html {
 }
 
 h1 {
-    font-weight: normal;
-    font-family: title, sans-serif;
     font-size: 60px;
     line-height: 1.2;
 }
 
-h2 {
-    font-weight: normal;
+h1, h2 {
     font-family: title, sans-serif;
-    font-size: 30px;
 }
 
 h3 {
@@ -32,9 +28,12 @@ h3 {
     font-size: 30px;
 }
 
+body, h3 {
+	font-family: body, serif;
+}
+
 body {
     font-size: 20px;
-    font-family: body, serif;
     color: #FFFFFF;
     padding: 50px 25px 25px 25px;
     margin:0;
@@ -47,11 +46,7 @@ li {
 	padding-bottom: 5pt;
 }
 
-video {
-    width: 100%;
-}
-
-img {
+video, img {
     width: 100%;
 }
 
@@ -83,10 +78,8 @@ a:hover {
 	font-family:title;
 	z-index: 99 !important;
 	border-radius: 0 0 50px 0;
-}
-
-#navmobile a {
 	color: #ffffff;
+	text-decoration: none;
 }
 
 #navframe {
@@ -94,6 +87,15 @@ a:hover {
 	height:100%;
 	width: 152px;
 	top:0;
+}
+
+.viewerOptions {
+	background-color:#2a2622;
+	padding: 10px 40px 10px 10px; 
+	position:absolute; 
+	left:0px; bottom:0px; 
+	font-family:title; 
+	border-radius: 0 50px 0 0;
 }
 
 nav {
@@ -123,10 +125,6 @@ nav a {
 	text-decoration: none;
 }
 
-nav a:hover {
-    color: #fee400;
-}
-
 nav ul {
     margin: 0;
     line-height: 1;
@@ -140,15 +138,6 @@ nav li {
 
 article {
     margin-left: 175px;
-}
-
-.horizontal-container {
-	overflow: hidden;
-	border-radius: 10px;
-	box-shadow: inset 0 2px 5px #000000;
-	background-color:#594d47;
-	padding: 10px;
-	width: fit-content;
 }
 
 .software-icon {
@@ -174,16 +163,11 @@ article {
 
 .circlesPacked {
     padding: 0;
-    width: 100%;
-	margin: 0 auto;
-	clear:both;
+    /* width: 100%; */
+	/* margin: 0 auto; */
+	padding: 50px 0;
+	/* clear:both; */
 	overflow:auto;
-}
-
-.circlesPacked::after {
-	content: “”;
-	display: block;
-	clear: both;
 }
 
 .packedCircle {
@@ -207,7 +191,7 @@ article {
 	background-color:#fee400;
 }
 
-.thumbnail {
+.packedCircle .thumbnail {
 	width:90%;
 	height:90%;
 	left:5%;
@@ -217,7 +201,7 @@ article {
 	line-height: 90%;
 }
 
-.thumbtext {
+.packedCircle .thumbtext {
 	font-family:title;
 	display: none;
 	justify-content: center;
@@ -229,21 +213,6 @@ article {
 .packedCircle:hover .thumbtext {
 	display: flex;
 }
-
-/*.circlesPacked .packedCircle::after {
-    content: '';
-    position: absolute;
-	border-radius: 50%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border: 10px solid #e65f54;
-}*/
-
-/*.circlesPacked .packedCircle:hover::after {
-    border: 20px solid #fee400;
-}*/
 
 .circlesPacked a:nth-child(4n+3) {
 	margin-left: 20.5%;
@@ -257,35 +226,15 @@ article {
 	position:fixed;
 	width:700px;
 	height:700px;
-	//top:0;
+	/* top:0; */
 	bottom:-80px;
 	left:0px;
 	opacity:1%;
 	background-image:url('/resources/dog cropped.svg');
-	background-position: left bottom; /* Center the image */
+	background-position: left bottom;
 	background-repeat: no-repeat;
 	z-index:-100;
 }
-
-/* .circlesPacked-hover-label { */
-    /* position: absolute; */
-    /* color: #e65f54; */
-    /* bottom: 0; */
-    /* right: 0; */
-    /* left: 0; */
-    /* padding: 200px 30px 30px; */
-
-    /* font-family: title, sans-serif; */
-    /* font-size: 30px; */
-    /* margin: 0; */
-    /* opacity: 0; */
-    /* text-decoration: underline; */
-    /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0.9) 200px); */
-/* } */
-
-/*.circlesPacked a:hover .circlesPacked-hover-label {
-    opacity: 1;
-}*/
 
 @media screen and (max-width: 700px) {
 
@@ -293,11 +242,7 @@ article {
         font-size: 35px;
     }
 
-    h2 {
-        font-size: 25px;
-    }
-	
-	h3 {
+    h2, h3 {
         font-size: 25px;
     }
 	
@@ -322,24 +267,18 @@ article {
 		padding-right:0px;
 	}
 	
-	
-	
 	#backgroundGlyph {
-		position:fixed;
+		/* position:fixed;
 		width:100%;
 		
 		bottom:0;
 		left:-15%;
-		opacity:2%;
+		opacity:2%; */
+		
+		display: none;
 	}
 	
 	.verticalvid {
 		padding:100% 0 0 0;
 	}
-	
-	/*body::before {
-		display:block;
-		content: '';
-		height:50px;
-	}*/
 }
