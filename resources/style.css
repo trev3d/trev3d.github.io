@@ -283,6 +283,11 @@ article {
 		padding-right:0px;
 	}
 	
+	.circlesPacked {
+		margin:0;
+		padding:50px 0;
+	}
+	
 	#backgroundGlyph {
 		/* position:fixed;
 		width:100%;
