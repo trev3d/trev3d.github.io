@@ -34,29 +34,41 @@
 	</div>
 			
 	<script src="https://player.vimeo.com/api/player.js"></script>
+	<h2>tl;dr</h2>
+	<p>
+		This is a virtual lab where I'm responsible for nearly all visuals and programming.
+		I built the lab in Unity and created the visuals using Blender, Substance Painter,
+		Marmoset Toolbag, and Affinity Designer.
+		The project was led by Purdue University Prof. Stylianos Chatzidakis to increase
+		access to curriculum-necessary lab equipment.
+	</p>
+	
+	<h2>3D prop art</h2>
 	
 	<p>
-		This is a virtual lab project led by Purdue University Prof. Stylianos Chatzidakis.
-		The lab is built on Unity, and I'm responsible for nearly all visuals and programming.
-		It runs in a browser and increases accessibility to curriculum-necessary lab equipment.
+		I was responsible for the lab's 3D models. 
+		The program is designed so that a student should be able to easily
+		use the real equipment after learning on its virtual counterparts.
+		The models are referenced from dozens of pictures
+		taken during visits to the lab.
+		<!-- I decorated these models with the same labels, stickers, stains, 
+		and scratches that grace their real counterparts. -->
+	</p>
+	
+	<p>
+		These were all made using Blender, 
+		Substance Painter, and Marmoset Toolbag.
+		Light is baked into all static meshes using Blender Cycles. 
 	</p>
 	
 	<div class="webvid verticalvid">
 		<iframe src="virtuallab/tbexport.html"></iframe>
 	</div>
+	
 	<p>
 		<a style="font-family:title;" href="virtuallab/tbexport.html" target="_blank">
 			Fullscreen >>>
 		</a>
-	</p>
-	
-	<p>
-		Users don't interface with 2D abstractions but instead 
-		press buttons, flip switches, and turn knobs on accurate 3D representations.
-		After using this virtual lab, a student should be able to easily
-		use the real thing.
-		<!-- I decorated these models with the same labels, stickers, stains, 
-		and scratches that grace their real counterparts. -->
 	</p>
 	<p>
 		The program runs in a browser and is optimized for low-spec devices
@@ -65,15 +77,38 @@
 		The program's load size is shy of 50mb.
 	</p>
 	
+	<h2>Programming</h2>
+	
+	<p>
+		Built on Unity, I'm responsible for most of this project's scripting.
+		This includes UI, UX, object manipulation, cable management, 
+		camera framing, and data graphing. Like the models, everything is 
+		profiled and optimized for low-spec devices.
+	</p>
+	
 	<a href="virtuallab/Screenshot_1.png" target="_blank"><img src="virtuallab/Screenshot_1.png"></a>
 	
 	<p>
-		I collaborated with Prof. Chatzidakis and his team to
-		program fully-functional simulations of the equipment.
-		The program is a flexible 'sandbox' that will deal with any 
-		arrangements the user may configure.
-		Inputs & outputs are fully simulated and everything interacts realistically.
+		Optimizing for speed and avoiding garbage was crucial 
+		for the large amount of generated and sampled data.
+		Running on web-assembly, this has to run on a single thread
+		and cannot leverage Unity's Burst compiler. 
+		While performance is more than acceptable, 
+		I'm eventually going to re-implement the equipment behavior in shaders.
 	</p>
+	
+	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
+	
+	<p>
+		The only programming that I wasn't entirely responsible for
+		was the equipment signal processing code.
+		I collaborated with Prof. Chatzidakis and his team to
+		model this equipment as I am neither an 
+		electrical engineer nor one of his nuclear engineering students.
+		I also wasn't responsible for the cable dynamics, as these are done with
+		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>.
+	</p>
+	
 	<!-- <p>
 		A lot of thought went into this program's architecture, 
 		leading to modular systems that communicate through delegates and Unity events.
@@ -83,8 +118,6 @@
 		and couldn't be useful in other projects.
 	</p> -->
 	
-	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
-	
 	<!-- <p>
 		I am continuing to collaborate with Prof. Chatzidakis and his team 
 		to expand the lab with more equipment and to cover more of his curriculum.
@@ -92,21 +125,15 @@
 		other developers may start building off of it.
 	</p> -->
 	
-	<p>
-		While I was responsible for most programming and artwork, 
-		I still used some third party assets.
-		The cable dynamics come from 
-		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>,
-		and the radioactive source container model comes from 
-		<a href="https://polyhaven.com/a/Barrel_01" target="_blank">PolyHaven</a>.
-	</p>
-	<p>
-		The lab is built in Unity and I created most of the visuals using in Blender,
-		Substance Painter, Marmoset Toolbag, and Affinity Designer.
-	</p>
-	
 	<a href="virtuallab/Screenshot_3.png" target="_blank"><img src="virtuallab/Screenshot_3.png"></a>
 	
+	<p>
+		Supporting a variety of devices means supporting 
+		a variety of display aspect ratios. 
+		A custom camera framing system lets me define a 
+		rectangle for each camera angle that will always be 
+		in frame regardless of aspect ratio. 
+	</p>
 	<p>
 		Completed late 2023
 	</p>

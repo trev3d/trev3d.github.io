@@ -24,7 +24,9 @@ h1 {
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 45px;
+	margin-top:75px;
+	margin-bottom:20px;
 }
 
 h3 {
@@ -48,8 +50,9 @@ body {
 	background-attachment: fixed;
 }
 
-li {
+li, ul {
 	padding-bottom: 5pt;
+	line-height:1.1em;
 }
 
 article > img, article > a > img, article > .webvid {
@@ -161,6 +164,7 @@ nav ul {
 
 nav li {
     padding-bottom: 15pt;
+	line-height:1em;
 }
 
 article {
