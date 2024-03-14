@@ -34,19 +34,27 @@
 			allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
 			allowfullscreen></iframe>
 	</div>
+	
+	<h2>tl;dr</h2>
 	<p>
 		This is a prototype VR multiplayer sword dueling game.
+		I created it using Unity, an OptiTrack stage, and several CC0 art assets.
 		Two players face off with physical foam swords on a motion capture stage.
 		The capture data is streamed to the VR headsets to drive visuals that align 
-		with the real world.
+		with the real world. 
+		Still a prototype, most of the visuals are placeholders.
 	</p>
+	
+	<h2>tracking &amp; calibration</h2>
 	
 	<p>
 		I am using an OptiTrack mocap system, and OptiTrack's
 		official plugin for Unity does not support 1:1 skeletal
 		tracking nor Android / Meta Quest. 
-		I instead modified an old third-party
-		plugin compatible with Android to support 1:1 skeletal tracking
+		I instead modified an old 
+		<a href="https://github.com/XmanLCH/MotiveDirect" target="_blank">
+			third-party plugin compatible with Android</a> 
+		to support 1:1 skeletal tracking
 		and the latest version of OptiTrack's software.
 	</p>
 	
@@ -56,36 +64,48 @@
 		While OptiTrack supports VR headset tracking, 
 		the Meta Quest already tracks itself and with less latency.
 		I wrote a calibration solution to align a headset's 
-		spatial orientation to the mocap system.
+		spatial orientation to the mocap system's.
+		Once calibrated, the headset is responsible for its own
+		tracking as usual. 
 	</p>
+	
+	<p>
+		There is still a lot of work to be done to improve space calibration, 
+		motion tracking latency, and the foam swords themselves
+		(made of PVC pipe and pool noodles, they're too heavy).
+	</p>
+	
+	<h2>visuals</h2>
+	
+	<a href="mocap/saber1.png" target="_blank"><img src="mocap/saber1.png"></a>
+	
 	<p>
 		Over-exposed light trails are a lightsaber signature.
-		I achieve these with a simple custom mesh trail generator.
+		While still a prototype, it just wouldn't be the same without them.
+		I achieve these with a simple custom mesh trail with a fixed topology.
+		I move existing vertices rather than regenerating the whole mesh like other systems.
 	</p>
 	
 	<a href="mocap/scene1.png" target="_blank"><img src="mocap/scene1.png"></a>
 	
 	<p>
-		There is still a lot of work to be done to improve space calibration, 
-		motion tracking latency, and the foam swords themselves
-		(they're made of PVC pipe and pool noodles. Too heavy!)
-	</p>
-	
-	<a href="mocap/saber1.png" target="_blank"><img src="mocap/saber1.png"></a>
-		
-	<p style="font-size: 0.7em; margin-top:0px;" >
-		Simple placeholder saber model
-	</p>
-	<a href="mocap/saber2.png" target="_blank"><img src="mocap/saber2.png"></a>
-	
-	<p>
-		My friend <a href="https://fizzyapple12.com/" target="_blank">Hazel</a>
-		helped a ton with testing the game and also helped make a late-night run 
-		to buy pool noodles for the swords. 
-		I used several CC0 assets from 
+		I remixed several CC0 assets from 
 		<a href="https://polyhaven.com" target="_blank">PolyHaven.com</a>
 		and <a href="https://ambientcg.com" target="_blank">AmbientCG.com</a>
-		to create the lava planet environment. Thank you!
+		to create a placeholder lava planet environment.
+		The robot model is a 
+		<a href="https://assetstore.unity.com/packages/3d/characters/robots/robot-kyle-urp-4696" target="_blank">
+			Unity standard asset</a>.
+	</p>
+	
+	<h2>thanks</h2>
+	<p>
+		I'd like to thank my friends 
+		<a href="https://fizzyapple12.com/" target="_blank">Hazel</a>
+		&
+		<a href="https://www.matthewstanciu.com/" target="_blank">Matthew</a>
+		for testing and also coming on a late-night run to buy pool noodles for the swords. 
+		Thank you!
 	</p>
 
 </article>
