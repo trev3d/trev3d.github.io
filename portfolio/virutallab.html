@@ -77,24 +77,26 @@
 		The program's load size is shy of 50mb.
 	</p>
 	
-	<h2>Programming</h2>
+	<h2>programming</h2>
 	
 	<p>
 		Built on Unity, I'm responsible for most of this project's scripting.
-		This includes UI, UX, object manipulation, cable management, 
-		camera framing, and data graphing. Like the models, everything is 
-		profiled and optimized for low-spec devices.
+		This includes UI, 3D equipment controls, object manipulation, 
+		cable management, camera framing, and data graphing. 
+		Like the 3D artwork, everything is profiled and optimized for low-spec devices.
 	</p>
 	
 	<a href="virtuallab/Screenshot_1.png" target="_blank"><img src="virtuallab/Screenshot_1.png"></a>
 	
+	
 	<p>
+		Running on web-assembly, this has to run on a single thread
+		and cannot leverage Unity's Burst compiler.
 		Optimizing for speed and avoiding garbage was crucial 
 		for the large amount of generated and sampled data.
-		Running on web-assembly, this has to run on a single thread
-		and cannot leverage Unity's Burst compiler. 
 		While performance is more than acceptable, 
-		I'm eventually going to re-implement the equipment behavior in shaders.
+		I'm planning on re-implement the equipment behavior 
+		in shaders for future extensions.
 	</p>
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>

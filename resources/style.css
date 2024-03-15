@@ -243,17 +243,18 @@ article {
 }
 
 #backgroundGlyph {
-	position:fixed;
+	/*position:fixed;
 	width:700px;
 	height:700px;
-	/* top:0; */
 	bottom:-80px;
 	left:0px;
 	opacity:1%;
 	background-image:url('/resources/dog cropped.svg');
 	background-position: left bottom;
 	background-repeat: no-repeat;
-	z-index:-100;
+	z-index:-100;*/
+	
+	display:none;
 }
 
 @media screen and (max-width: 700px) {
