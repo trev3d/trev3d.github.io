@@ -50,11 +50,6 @@ body {
 	background-attachment: fixed;
 }
 
-li, ul {
-	padding-bottom: 5pt;
-	line-height:1.1em;
-}
-
 article > img, article > a > img, article > .webvid {
     width: 100%;
 	margin:20px 0;
