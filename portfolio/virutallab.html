@@ -101,12 +101,12 @@
 	</a>
 	
 	<p>
-		All of these different systems are separated into assemblies.
+		All of these systems are separated into assemblies.
 		For a project of this size, UnityEvents suffice to glue 
-		all of these together without becoming unwieldy. 
+		all these together without becoming unwieldy. 
 		I'm very pleased with this architecture and 
-		I've already reused these systems for other virtual lab
-		projects several times.
+		I've already reused these systems in several other virtual lab
+		projects.
 	</p>
 	
 	<!-- <video autoplay muted playsinline loop 
@@ -118,11 +118,11 @@
 	<p>
 		Running on web-assembly, this has to run on a single thread
 		and cannot leverage Unity's Burst compiler.
-		Optimizing for speed and avoiding garbage was crucial 
+		Optimizing for speed and avoiding allocations &amp; garbage was crucial 
 		for the large amount of generated and sampled data.
 		While performance is more than acceptable, 
-		I'm planning on re-implement the equipment behavior 
-		in shaders for future extensions.
+		I'm planning on re-implement cable signals and equipment behavior 
+		in shaders for future lab extensions.
 	</p>
 	
 	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
