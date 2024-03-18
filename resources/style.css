@@ -44,10 +44,10 @@ body {
     padding: 50px 25px 25px 25px;
     margin:0;
     line-height: 2;
-	overflow-x: hidden;
 	background-color: #2a2622;
 	background-image:url('/resources/paper.png');
 	background-attachment: fixed;
+	overflow-x: hidden;
 }
 
 article > img, article > a > img, article > .webvid {
