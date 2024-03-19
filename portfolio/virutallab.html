@@ -37,7 +37,7 @@
 	<h2>tl;dr</h2>
 	<p>
 		This is an educational virtual lab project 
-		where I'm responsible for nearly all visuals and programming.
+		where I'm responsible for (nearly) all design, artwork, and programming.
 		I built the lab on Unity and created most of the visuals
 		with Blender, Marmoset Toolbag, and Substance Painter.
 		The project was led by Purdue University Prof. Stylianos Chatzidakis to increase
@@ -71,6 +71,7 @@
 			<li>Lighting is baked directly into equipment textures
 				since each only appears once. 
 	</ul>
+	</p>
 	
 	<a href="virtuallab/Screenshot_1.png" target="_blank"><img src="virtuallab/Screenshot_1.png"></a>
 	
@@ -79,7 +80,7 @@
 		After learning with this virtual lab, a student should 
 		easily be able to use the real equipment.
 		I made several visits to the lab while working on these assets
-		to use the real equipment myself and record plenty of reference material.
+		to use the real equipment myself and recorded plenty of reference material.
 	</p>
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
@@ -110,10 +111,10 @@
 	</a>
 	
 	<p>
-		I built systems in separate assemblies so that 
-		I could re-use them in other virtual lab projects.
-		These individual assemblies have come in handy on several other projects.
-		UnityEvents suffice to glue these together without becoming unwieldy 
+		I built systems in separate assemblies so that I could re-use them elsewhere, 
+		and these assemblies have already come in handy on several other projects.
+		UnityEvents set up through the scene editor 
+		suffice to glue these systems together without becoming unwieldy 
 		as this project is relatively small.
 	</p>
 	
@@ -125,10 +126,18 @@
 		Building good UX around equipment's 3D controls was a challenge.
 	</p>
 	<p>
+		To prevent users from losing objects, 
+		the user cannot drop objects behind UI elements,
+		outside of the camera bounds, or while the camera is moving.
+		Held objects position using rigidbody-casts so that they don't 
+		visually clip into their surroundings.
+	</p>
+	<p>
 		Supporting a variety of devices means supporting a variety of aspect ratios. 
-		I built a camera system for 'frames' that the user can navigate between. 
-		Frames position the camera so that anything within the frame is always visible
-		regardless of aspect ratio.
+		I wrote an editor tool to create 'frames' that the user can navigate between. 
+		Users navigate between frames which position the camera 
+		so that anything within the frame is visible on any aspect ratio.
+		A simple camera rig pans the camera between these frames.
 	</p>
 	<p>
 		The controls also must be large enough for the user to easily
