@@ -18,7 +18,7 @@
 <article>
 	<h1>nuclear engineering<br>virtual education</h1>
 	<h3>
-		Built in Unity. Mostly solo project - responsible for nearly all artwork, visuals, and scripting.<br>
+		Built in Unity. Mostly solo project - responsible for nearly all artwork and programming.<br>
 	
 		<img class="software-icon" src="/resources/icons/unity.png">
 		<img class="software-icon" src="/resources/icons/blender.png">
@@ -36,9 +36,10 @@
 	<script src="https://player.vimeo.com/api/player.js"></script>
 	<h2>tl;dr</h2>
 	<p>
-		This is a virtual lab where I'm responsible for nearly all visuals and programming.
-		I built the lab in Unity and created the visuals using Blender, Substance Painter,
-		Marmoset Toolbag, and Affinity Designer.
+		This is an educational virtual lab project 
+		where I'm responsible for nearly all visuals and programming.
+		I built the lab on Unity and created most of the visuals
+		with Blender, Marmoset Toolbag, and Substance Painter.
 		The project was led by Purdue University Prof. Stylianos Chatzidakis to increase
 		access to curriculum-necessary lab equipment.
 	</p>
@@ -56,30 +57,38 @@
 	</p>
 	
 	<p>
-		I was responsible for the lab's 3D models. 
-		The program is designed so that a student should be able to easily
-		use the real equipment after learning on its virtual counterparts.
-		The models are referenced from dozens of pictures
-		taken during visits to the lab.
-		<!-- I decorated these models with the same labels, stickers, stains, 
-		and scratches that grace their real counterparts. -->
-	</p>
+		These models are tightly integrated into the program
+		since I am also responsible for the Unity project.
+		Some examples:
+		<ul>
+			<li>The models have less texel density on faces that I know
+				are mostly obscured or unseen.
+			<li>I wrote the line graph &amp; histogram shaders
+				and prepared the equipment models to use them.
+			<li>Some non-static objects cast custom soft-shadow decals.
+			<li>I created specific reflections cubemaps for 
+				many non-static objects to prevent incorrect specular highlights.
+			<li>Lighting is baked directly into equipment textures
+				since I know each only appears once. 
+	</ul>
 	
 	<a href="virtuallab/Screenshot_1.png" target="_blank"><img src="virtuallab/Screenshot_1.png"></a>
 	
 	<p>
-		These were all made using Blender, 
-		Substance Painter, and Marmoset Toolbag.
-		Light is baked into all static meshes using Blender Cycles. 
+		These virtual tools are close matches to their real counterparts.
+		After learning with this virtual lab, a student should 
+		easily be able to use the real equipment.
+		I made several visits to the lab while working on these assets
+		to use the real equipment myself and record plenty of reference material.
 	</p>
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
 	
 	<p>
-		The program runs in a browser and is optimized for low-spec devices
+		The lab runs in a browser and is optimized for low-spec devices
 		such as Chromebooks and tablets.
-		There are max 25k triangles rendered in 22 draw events.
-		The program's load size is shy of 50mb.
+		There are max 25,000 triangles rendered across 22 draw events.
+		The lab's load size is just under 50mb.
 	</p>
 	
 	<a href="virtuallab/Screenshot_3.png" target="_blank"><img src="virtuallab/Screenshot_3.png"></a>
@@ -90,7 +99,7 @@
 	
 	<p>
 		Built on Unity, I'm responsible for most of this project's scripting.
-		This includes UI, 3D equipment controls, object manipulation, 
+		This includes the UI, 3D equipment controls, object manipulation, 
 		cable management, camera framing, and data graphing. 
 		Like the 3D artwork, everything is profiled and optimized for low-spec devices.
 	</p>
@@ -101,31 +110,50 @@
 	</a>
 	
 	<p>
-		All of these systems are separated into assemblies.
-		For a project of this size, UnityEvents suffice to glue 
-		these together without becoming unwieldy.
+		I built systems in separate assemblies so that 
+		I could re-use them in other virtual lab projects.
+		These individual assemblies have come in handy on several other projects.
+		UnityEvents suffice to glue these together without becoming unwieldy 
+		as this project is relatively small.
 	</p>
 	
-	<!-- <video autoplay muted playsinline loop 
+	<video autoplay muted playsinline loop 
 			src="virtuallab/controls.mp4"
-			style="width:100%; max-height:300px; margin:auto;"></video> -->
-	
-	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
-	
+			style="width:100%; max-height:300px; margin:auto;"></video>
+			
 	<p>
-		Running on web-assembly, this has to run on a single thread
-		and cannot leverage Unity's Burst compiler.
-		Optimizing for speed and avoiding allocations &amp; garbage was crucial 
-		for the large amount of generated and sampled data.
-		While performance is more than acceptable, 
-		I'm planning on re-implement cable signals and equipment behavior 
-		in shaders for future lab extensions.
+		Building good UX around equipment's 3D controls was a challenge.
+	</p>
+	<p>
+		Supporting a variety of devices means supporting a variety of aspect ratios. 
+		I built a camera system for 'frames' that the user can navigate between. 
+		Frames position the camera so that anything within the frame is always visible
+		regardless of aspect ratio.
+	</p>
+	<p>
+		The controls also must be large enough for the user to easily
+		interact with them, so the different camera frames are arranged to 
+		keep these controls at sane sizes. 
+		The equipment is also arranged to keep related frames
+		and controls within reach of one another.
 	</p>
 	
 	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
 	
 	<p>
-		The only programming that I wasn't entirely responsible for
+		Running on web-assembly, the lab must run on a single thread
+		and cannot leverage Unity's Burst compiler.
+		Optimizing for speed and avoiding allocations &amp; garbage was crucial 
+		for the large amount of generated and sampled data.
+		While performance is more than acceptable, 
+		I'll likely re-implement the signal processing code 
+		in shaders for future lab extensions.
+	</p>
+	
+	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
+	
+	<p>
+		The only scripting that I wasn't entirely responsible for
 		was the equipment signal processing code.
 		I collaborated with Prof. Chatzidakis and his team to
 		model this equipment as I am neither an 
