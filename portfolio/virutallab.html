@@ -105,23 +105,27 @@
 		Like the 3D artwork, everything is profiled and optimized for low-spec devices.
 	</p>
 	
-	<a href="virtuallab/flow.png" target="_blank">
-		<img src="virtuallab/flow.png"
-			style="margin:auto; max-height:400px; width:auto; max-width:100%; display:block;">
-	</a>
+	<a href="virtuallab/data.png" target="_blank"><img src="virtuallab/data.png"></a>
 	
 	<p>
-		I built systems in separate assemblies so that I could re-use them elsewhere, 
-		and these assemblies have already come in handy on several other projects.
-		UnityEvents set up through the scene editor 
-		suffice to glue these systems together without becoming unwieldy 
-		as this project is relatively small.
+		All of the lab tools are fully functional
+		and process simulated signals. 
+		Together with Prof. Chatzidakis and his team, 
+		we modeled these devices in C#.
+		The lab targets 100,000 samples per second,
+		each of those being signals processed by the equipment.
+		This is currently done on the CPU built into WebAssembly
+		(although I want to reimplement these as shaders in the future).
 	</p>
-	
-	<video autoplay muted playsinline loop 
-			src="virtuallab/controls.mp4"
-			style="width:100%; max-height:300px; margin:auto;"></video>
-			
+	<p>
+		As a Unity web app targeting maximum compatibility,
+		its limited to a single core with no support for Unity's
+		BURST compiler. Performance is more than acceptable,
+		but it took plenty of profiling to get there.
+	</p>
+		
+	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
+		
 	<p>
 		Building good UX around equipment's 3D controls was a challenge.
 	</p>
@@ -132,11 +136,19 @@
 		Held objects position using rigidbody-casts so that they don't 
 		visually clip into their surroundings.
 	</p>
+	
+	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
+	
 	<p>
 		Supporting a variety of devices means supporting a variety of aspect ratios. 
 		I wrote an editor tool for creating camera 'frames' which position the camera 
 		so that everything fits into view regardless of aspect ratio. 
 	</p>
+	
+	<video autoplay muted playsinline loop 
+			src="virtuallab/controls.mp4"
+			style="width:100%; max-height:300px; margin:auto;"></video>
+	
 	<p>
 		The controls also must be large enough for the user to easily
 		interact with them, so the different camera frames are arranged to 
@@ -145,21 +157,7 @@
 		and controls within reach of one another.
 	</p>
 	
-	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
-	
-	<p>
-		Running on web-assembly, the lab must run on a single thread
-		and cannot leverage Unity's Burst compiler.
-		Optimizing for speed and avoiding allocations &amp; garbage was crucial 
-		for the large amount of generated and sampled data.
-		While performance is more than acceptable, 
-		I'll likely re-implement the signal processing code 
-		in shaders for future lab extensions.
-	</p>
-	
-	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
-	
-	<p>
+	<!--<p>
 		The only scripting that I wasn't entirely responsible for
 		was the equipment signal processing code.
 		I collaborated with Prof. Chatzidakis and his team to
@@ -167,7 +165,7 @@
 		electrical engineer nor one of his nuclear engineering students.
 		I also wasn't responsible for the cable dynamics, as these are done with
 		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>.
-	</p>
+	</p>-->
 
 	<p>
 		Completed late 2023
