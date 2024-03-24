@@ -37,11 +37,15 @@
 	<h2>tl;dr</h2>
 	<p>
 		This is an educational virtual lab project 
-		where I'm responsible for (nearly) all design, artwork, and programming.
-		I built the lab on Unity and created most of the visuals
-		with Blender, Marmoset Toolbag, and Substance Painter.
+		where I'm responsible for all design, artwork, and (nearly all) programming.
+		I built the lab on Unity and created the visuals
+		with Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
 		The project was led by Purdue University Prof. Stylianos Chatzidakis to increase
 		access to curriculum-necessary lab equipment.
+	</p>
+	
+	<p>
+		Completed late 2023
 	</p>
 	
 	<h2>3D artwork</h2>
@@ -63,24 +67,27 @@
 		<ul>
 			<li>The models have less texel density on faces that I know
 				are mostly obscured or unseen.
-			<li>I wrote the line graph &amp; histogram shaders
-				and prepared the equipment models to use them.
-			<li>Some non-static objects cast custom soft-shadow decals.
-			<li>I created specific reflection cubemaps for 
-				many non-static objects to prevent incorrect specular highlights.
-			<li>Lighting is baked directly into equipment textures
-				since each only appears once. 
+			<li>Lighting is baked directly into equipment textures using 
+				Blender / Cycles since each only appears once. 
+				Static elements use these textures with a simple unlit material. 
+			<li>I created specific reflection cubemaps for many non-static 
+				buttons and dials to eliminate incorrect specular highlights.
+			<li>Some non-static draggable objects cast custom soft-shadow decals.
+			<li>I prepared the models for the line graph &amp; histogram shaders I wrote.
 	</ul>
 	</p>
 	
-	<a href="virtuallab/Screenshot_1.png" target="_blank"><img src="virtuallab/Screenshot_1.png"></a>
+	<a href="virtuallab/equipment.png" target="_blank"><img src="virtuallab/equipment.png"></a>
+	
+	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
 	
 	<p>
-		These virtual tools are close matches to their real counterparts.
 		After learning with this virtual lab, a student should 
-		easily be able to use the real equipment.
+		easily be able to use the real equipment, 
+		as these virtual tools are close matches to their real counterparts
+		both visually and functionally. 
 		I made several visits to the lab while working on these assets
-		to use the real equipment myself and recorded plenty of reference material.
+		to use the real equipment myself and record plenty of reference material.
 	</p>
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
@@ -103,31 +110,86 @@
 		This includes the UI, 3D equipment controls, object manipulation, 
 		cable management, camera framing, and data graphing. 
 		Like the 3D artwork, everything is profiled and optimized for low-spec devices.
+		I had help with simulating the equipment, and the cable physics come from 
+		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>.
 	</p>
 	
-	<a href="virtuallab/data.png" target="_blank"><img src="virtuallab/data.png"></a>
+	<br>
+	<h3>Signal processing and equipment simulation:</h3>
 	
 	<p>
 		All of the lab tools are fully functional
 		and process simulated signals. 
 		Together with Prof. Chatzidakis and his team, 
 		we modeled these devices in C#.
-		The lab targets 100,000 samples per second,
-		each of those being signals processed by the equipment.
-		This is currently done on the CPU built into WebAssembly
+		Signal processing is currently done on the CPU built into WebAssembly
 		(although I want to reimplement these as shaders in the future).
 	</p>
+	
+	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
+	
 	<p>
+		The lab targets 100,000 samples per second,
+		each of those being signals processed by the equipment.
 		As a Unity web app targeting maximum compatibility,
-		its limited to a single core with no support for Unity's
+		its limited to a single CPU core with no support for Unity's
 		BURST compiler. Performance is more than acceptable,
 		but it took plenty of profiling to get there.
 	</p>
+	
+	<video autoplay muted playsinline loop 
+			src="virtuallab/samples.mp4"
+			style="width:100%; max-height:300px; margin:auto;"></video>
+	
+	<p>
+		Signals are processed using a stack of functional methods that the
+		user builds with the draggable cables and ports.
+		I avoid using delegates as these can easily create garbage if used improperly
+		and I may need to hand this project off to someone less experienced in the future.
+		Signals instead inherit a base Signal class overriding a 
+		function that takes a float time (seconds) and returns a float energy (voltage).
+		Some features, such as the oscilloscope graph or data histogram, 
+		sample these functional method stacks.
+	</p>
+	
+	<br>
+	<h3>Cable visuals and performance:</h3>
+	
+	<p>
+		The cables, with physics by  
+		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>,
+		presented many problems.
+	</p>
+	
+	<p> 
+		Mesh updates are extremely expensive according to my profiling.
+		Instead of a mesh cylinder, I use a flat ribbon
+		with a cylindrical normal texture to minimize the vertices Obi needs to move. 
+		I eventually want to add end cap vertices for a better cylinder look.
+	</p>
+	
+	<a href="virtuallab/cables.png" target="_blank"><img src="virtuallab/cables.png"></a>
+	
+	<p>
+		I randomize cable colors so users can keep track of
+		what is connected to what.
+		All the cables use a single material and I change the vertex
+		colors on cable meshes when they spawn.
 		
-	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
+	</p>
+	
+	<a href="virtuallab/dither.png" target="_blank"><img src="virtuallab/dither.png"></a>
+	
+	<p>
+		The cables also become semi-transparent via dithering
+		when they may obscure important elements.
+	</p>
+		
+	<br>
+	<h3>User experience in 3D:</h3>
 		
 	<p>
-		Building good UX around equipment's 3D controls was a challenge.
+		Building good UX around the rest of the equipment's 3D controls was also a challenge.
 	</p>
 	<p>
 		To prevent users from losing objects, 
@@ -137,25 +199,25 @@
 		visually clip into their surroundings.
 	</p>
 	
-	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
-	
 	<p>
 		Supporting a variety of devices means supporting a variety of aspect ratios. 
 		I wrote an editor tool for creating camera 'frames' which position the camera 
 		so that everything fits into view regardless of aspect ratio. 
 	</p>
 	
-	<video autoplay muted playsinline loop 
-			src="virtuallab/controls.mp4"
-			style="width:100%; max-height:300px; margin:auto;"></video>
+	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
 	
 	<p>
-		The controls also must be large enough for the user to easily
+		The controls must be large enough for the user to easily
 		interact with them, so the different camera frames are arranged to 
 		keep these controls at sane sizes. 
 		The equipment is also arranged to keep related frames
 		and controls within reach of one another.
 	</p>
+	
+	<video autoplay muted playsinline loop 
+			src="virtuallab/controls.mp4"
+			style="width:100%; max-height:300px; margin:auto;"></video>
 	
 	<!--<p>
 		The only scripting that I wasn't entirely responsible for
@@ -166,10 +228,6 @@
 		I also wasn't responsible for the cable dynamics, as these are done with
 		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>.
 	</p>-->
-
-	<p>
-		Completed late 2023
-	</p>
 
 </article>
 
