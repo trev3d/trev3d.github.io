@@ -142,11 +142,11 @@
 			style="width:100%; max-height:300px; margin:auto;"></video>
 	
 	<p>
-		Signals are function call stacks that the user builds by connecting up equipment.
+		Signals are function chains that the user builds by wiring up equipment.
 		Signal structs implement an interface with a function that takes 
 		float time (seconds) and returns a float energy (voltage).
 		These are not pure functions as the equipment controls drive
-		equipment-specific variables that affect the output of these functions.
+		equipment-specific variables that affect output.
 		I avoid using delegates as they can easily create garbage if used improperly
 		and other developers may expand the lab in the future.
 	</p>
