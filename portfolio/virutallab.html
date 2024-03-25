@@ -142,14 +142,13 @@
 			style="width:100%; max-height:300px; margin:auto;"></video>
 	
 	<p>
-		Signals are processed using a stack of functional methods that the
-		user builds with the draggable cables and ports.
-		I avoid using delegates as these can easily create garbage if used improperly
-		and I may need to hand this project off to someone less experienced in the future.
-		Signals instead inherit a base Signal class overriding a 
-		function that takes a float time (seconds) and returns a float energy (voltage).
-		Some features, such as the oscilloscope graph or data histogram, 
-		sample these functional method stacks.
+		Signals are function call stacks that the user builds by connecting up equipment.
+		Signal structs implement an interface with a function that takes 
+		float time (seconds) and returns a float energy (voltage).
+		These are not pure functions as the equipment controls drive
+		equipment-specific variables that affect the output of these functions.
+		I avoid using delegates as they can easily create garbage if used improperly
+		and other developers may expand the lab in the future.
 	</p>
 	
 	<br>
