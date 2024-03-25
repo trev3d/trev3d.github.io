@@ -111,12 +111,12 @@ a:hover {
 }
 
 .viewerOptions {
-	background-color:#2a2622;
-	padding: 10px 40px 10px 10px; 
+	background-color:#171412;
+	padding: 10px 20px 10px 30px; 
 	position:absolute; 
-	left:0px; bottom:0px; 
+	right:0px; bottom:0px; 
 	font-family:title; 
-	border-radius: 0 50px 0 0;
+	border-radius: 40px 0 0 0;
 }
 
 nav {
