@@ -129,12 +129,13 @@
 	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
 	
 	<p>
-		The lab targets 100,000 samples per second,
-		each of those being signals processed by the equipment.
+		The lab targets 100,000 simulated energy measurements per second,
+		each of those being voltage curves processed by the equipment.
 		As a Unity web app targeting maximum compatibility,
-		its limited to a single CPU core with no support for Unity's
-		BURST compiler. Performance is more than acceptable,
-		but it took plenty of profiling to get there.
+		the lab is limited to a single CPU core and 
+		and is not compatible with Unity's Burst compiler. 
+		Performance is more than acceptable,
+		but it took plenty of profiling and optimization to get there.
 	</p>
 	
 	<video autoplay muted playsinline loop 
@@ -146,7 +147,7 @@
 		Signal structs implement an interface with a function that takes 
 		float time (seconds) and returns a float energy (voltage).
 		These are not pure functions as the equipment controls drive
-		equipment-specific variables that affect output.
+		equipment-specific variables that affect their outputs.
 		I avoid using delegates as they can easily create garbage if used improperly
 		and other developers may expand the lab in the future.
 	</p>
@@ -157,11 +158,12 @@
 	<p>
 		The cables, with physics by  
 		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>,
-		presented many problems.
+		presented many performance and UX problems:
 	</p>
 	
 	<p> 
-		Mesh updates are extremely expensive according to my profiling.
+		Cable mesh updates are extremely expensive 
+		with vertex count increasing time linearly.
 		Instead of a cylindrical cable mesh, I use a flat ribbon mesh
 		with cylindrical normals to minimize the vertices Obi needs to move. 
 		I want to eventually add end cap vertices for a better cylinder look.
@@ -172,8 +174,8 @@
 	<p>
 		I randomize cable colors so users can keep track of
 		what is connected to what.
-		All the cables use the same material, but I change the vertex
-		colors of cable meshes when they spawn.
+		All the cables use the same material, 
+		but I change the vertex colors of cable meshes when they spawn.
 	</p>
 	
 	<a href="virtuallab/dither.png" target="_blank"><img src="virtuallab/dither.png"></a>
