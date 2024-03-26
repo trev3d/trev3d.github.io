@@ -83,8 +83,9 @@
 	<p>
 		A student should easily be able to use the real equipment
 		after using the simulation 
-		as these virtual tools are close matches to their real counterparts
-		both visually and functionally. 
+		as these virtual tools are close matches to their real counterparts.
+		All of the equipment's controls (knobs, dials, switches, etc) are fully modeled
+		and functional.
 		I made several visits to the lab while working on these assets
 		to use the real equipment myself and record plenty of reference material.
 	</p>
@@ -145,8 +146,7 @@
 		float time (seconds) and returns a float energy (voltage).
 		These are not pure functions as the equipment controls drive
 		equipment-specific variables that affect their outputs.
-		I avoid using delegates as they can easily create garbage if used improperly
-		and other developers may expand the lab in the future.
+		I avoid using delegates as they can easily create garbage if used improperly.
 	</p>
 	
 	<br>
@@ -159,8 +159,8 @@
 	</p>
 	
 	<p> 
-		Cable mesh updates are extremely expensive 
-		with time increasing linearly with vertex count.
+		Cable mesh updates are extremely expensive;
+		time increases linearly with vertex count.
 		Instead of a cylindrical cable mesh, I use a flat ribbon mesh
 		with cylindrical normals to minimize the vertices Obi needs to move. 
 		I want to eventually add end cap vertices for a better cylinder look.
@@ -171,8 +171,8 @@
 	<p>
 		I randomize cable colors so users can keep track of
 		what is connected to what.
-		All the cables use the same material, 
-		but I change the vertex colors of cable meshes when they spawn.
+		All the cables use the same material,
+		and I change the vertex colors of cable meshes when they spawn.
 	</p>
 	
 	<a href="virtuallab/dither.png" target="_blank"><img src="virtuallab/dither.png"></a>
@@ -187,7 +187,7 @@
 		
 	<p>
 		Building good UX around the rest of the equipment's 
-		3D controls was also a challenge.
+		3D controls was also a challenge:
 	</p>
 	<p>
 		To prevent users from losing objects, 
