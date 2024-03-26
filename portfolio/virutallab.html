@@ -38,7 +38,7 @@
 	<p>
 		This is an educational virtual lab project 
 		where I'm responsible for all design, artwork, and (nearly all) programming.
-		I built the lab on Unity and created the visuals
+		I built the lab in Unity and created the visuals
 		with Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
 		The project was led by Purdue University Prof. Stylianos Chatzidakis to increase
 		access to curriculum-necessary lab equipment.
@@ -61,9 +61,8 @@
 	</p>
 	
 	<p>
-		These models are tightly integrated into the program
-		since I am also responsible for the Unity project.
-		Some examples:
+		Since I am also responsible for the Unity project,
+		these models are tightly integrated into the program.
 		<ul>
 			<li>The models have less texel density on faces that I know
 				are mostly obscured or unseen.
@@ -82,8 +81,8 @@
 	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
 	
 	<p>
-		After learning with this virtual lab, a student should 
-		easily be able to use the real equipment, 
+		A student should easily be able to use the real equipment
+		after using the simulation 
 		as these virtual tools are close matches to their real counterparts
 		both visually and functionally. 
 		I made several visits to the lab while working on these assets
@@ -106,12 +105,10 @@
 	<a href="virtuallab/editor2.png" target="_blank"><img src="virtuallab/editor2.png"></a>
 	
 	<p>
-		Built on Unity, I'm responsible for most of this project's scripting.
+		Built in Unity, I'm responsible for most of this project's scripting.
 		This includes the UI, 3D equipment controls, object manipulation, 
 		cable management, camera framing, and data graphing. 
 		Like the 3D artwork, everything is profiled and optimized for low-spec devices.
-		I had help with simulating the equipment, and the cable physics come from 
-		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>.
 	</p>
 	
 	<br>
@@ -119,23 +116,23 @@
 	
 	<p>
 		All of the lab tools are fully functional
-		and process simulated signals. 
-		Together with Prof. Chatzidakis and his team, 
-		we modeled these devices in C#.
-		Signal processing is currently done on the CPU built into WebAssembly
-		(although I want to reimplement these as shaders in the future).
+		and process simulated voltage curves. 
+		With the help of Prof. Chatzidakis and his team, 
+		I modeled these devices in C# .
 	</p>
 	
 	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
 	
 	<p>
 		The lab targets 100,000 simulated energy measurements per second,
-		each of those being voltage curves processed by the equipment.
+		each of these being simulated voltage curves
+		affected by simulated equipment signal processing.
 		As a Unity web app targeting maximum compatibility,
-		the lab is limited to a single CPU core and 
+		the lab is limited to a single CPU core 
 		and is not compatible with Unity's Burst compiler. 
-		Performance is more than acceptable,
-		but it took plenty of profiling and optimization to get there.
+		Performance is still more than acceptable,
+		but I want to move this to the GPU to support 
+		future equipment with more intense operations.
 	</p>
 	
 	<video autoplay muted playsinline loop 
@@ -143,8 +140,8 @@
 			style="width:100%; max-height:300px; margin:auto;"></video>
 	
 	<p>
-		Signals are function chains that the user builds by wiring up equipment.
-		Signal structs implement an interface with a function that takes 
+		The user builds a chain of signal-processing functions by wiring up equipment.
+		Signal structs implement an interface with a voltage curve function that takes 
 		float time (seconds) and returns a float energy (voltage).
 		These are not pure functions as the equipment controls drive
 		equipment-specific variables that affect their outputs.
@@ -163,7 +160,7 @@
 	
 	<p> 
 		Cable mesh updates are extremely expensive 
-		with vertex count increasing time linearly.
+		with time increasing linearly with vertex count.
 		Instead of a cylindrical cable mesh, I use a flat ribbon mesh
 		with cylindrical normals to minimize the vertices Obi needs to move. 
 		I want to eventually add end cap vertices for a better cylinder look.
@@ -189,7 +186,8 @@
 	<h3>User experience in 3D:</h3>
 		
 	<p>
-		Building good UX around the rest of the equipment's 3D controls was also a challenge.
+		Building good UX around the rest of the equipment's 
+		3D controls was also a challenge.
 	</p>
 	<p>
 		To prevent users from losing objects, 
