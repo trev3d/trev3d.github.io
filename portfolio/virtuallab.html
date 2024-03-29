@@ -36,10 +36,13 @@
 	<script src="https://player.vimeo.com/api/player.js"></script>
 	<h2>tl;dr</h2>
 	<p>
-		This is an educational virtual lab project 
-		where I'm responsible for all design, artwork, and (nearly all) programming.
+		This is a virtual lab for nuclear engineering undergrads.
+		I'm responsible for all design, artwork, and (nearly all) programming.
 		I built the lab in Unity and created the visuals
-		with Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
+		in Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
+	</p>
+	<p>
+		
 		The project was led by Purdue University Prof. Stylianos Chatzidakis to increase
 		access to curriculum-necessary lab equipment.
 	</p>
@@ -60,9 +63,30 @@
 		</a>
 	</p>
 	
+	<a href="virtuallab/equipment.png" target="_blank"><img src="virtuallab/equipment.png"></a>
+	
+	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
+	
 	<p>
-		Since I am also responsible for the Unity project,
-		these models are tightly integrated into the program.
+		These virtual tools are close matches to their real counterparts, 
+		so a student should be able to use the real equipment after using this.
+		All of the controls (knobs, dials, switches, etc) 
+		are fully and functional.
+	</p>
+	
+	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
+	
+	<p>
+		This runs in a browser and is optimized for low-spec devices
+		such as Chromebooks and tablets.
+		There are max 25,000 triangles rendered across 22 draw events.
+		The lab's load size is just under 50mb.
+	</p>
+	
+	<a href="virtuallab/Screenshot_3.png" target="_blank"><img src="virtuallab/Screenshot_3.png"></a>
+	
+	<p>
+		Some subtle details:
 		<ul>
 			<li>The models have less texel density on faces that I know
 				are mostly obscured or unseen.
@@ -71,44 +95,19 @@
 				Static elements use these textures with a simple unlit material. 
 			<li>I created specific reflection cubemaps for many non-static 
 				buttons and dials to eliminate incorrect specular highlights.
-			<li>Some non-static draggable objects cast custom soft-shadow decals.
-			<li>I prepared the models for the line graph &amp; histogram shaders I wrote.
-	</ul>
+			<li>Some movable objects drop soft-shadow decals to make it easier to judge
+			their position.
+		</ul>
 	</p>
-	
-	<a href="virtuallab/equipment.png" target="_blank"><img src="virtuallab/equipment.png"></a>
-	
-	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
-	
-	<p>
-		A student should easily be able to use the real equipment
-		after using the simulation 
-		as these virtual tools are close matches to their real counterparts.
-		All of the equipment's controls (knobs, dials, switches, etc) are fully modeled
-		and functional.
-		I made several visits to the lab while working on these assets
-		to use the real equipment myself and record plenty of reference material.
-	</p>
-	
-	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
-	
-	<p>
-		The lab runs in a browser and is optimized for low-spec devices
-		such as Chromebooks and tablets.
-		There are max 25,000 triangles rendered across 22 draw events.
-		The lab's load size is just under 50mb.
-	</p>
-	
-	<a href="virtuallab/Screenshot_3.png" target="_blank"><img src="virtuallab/Screenshot_3.png"></a>
 	
 	<h2>programming</h2>
 	
 	<a href="virtuallab/editor2.png" target="_blank"><img src="virtuallab/editor2.png"></a>
 	
 	<p>
-		Built in Unity, I'm responsible for most of this project's scripting.
-		This includes the UI, 3D equipment controls, object manipulation, 
-		cable management, camera framing, and data graphing. 
+		Built in Unity, I'm responsible for most of this project's scripting
+		(UI, 3D equipment controls, object manipulation, 
+		cable management, camera framing, data graphing, etc, etc). 
 		Like the 3D artwork, everything is profiled and optimized for low-spec devices.
 	</p>
 	
@@ -116,54 +115,46 @@
 	<h3>Signal processing and equipment simulation:</h3>
 	
 	<p>
-		All of the lab tools are fully functional
-		and process simulated voltage curves. 
+		Each tool simulates signal processing on voltage curve functions. 
 		With the help of Prof. Chatzidakis and his team, 
-		I modeled these devices in C# .
+		I modeled the equipment behavior in C#.
 	</p>
 	
 	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
 	
 	<p>
-		The lab targets 100,000 simulated energy measurements per second,
-		each of these being simulated voltage curves
-		affected by simulated equipment signal processing.
-		As a Unity web app targeting maximum compatibility,
-		the lab is limited to a single CPU core 
-		and is not compatible with Unity's Burst compiler. 
-		Performance is still more than acceptable,
-		but I want to move this to the GPU to support 
-		future equipment with more intense operations.
+		The lab targets 100,000 data samples per second,
+		each a signal processed by all the equipment.
+		Being a web app,
+		I'm limited to a single CPU core 
+		and can't use Unity's Burst compiler;
+		even so, low-spec devices run the simulation at full speed.
 	</p>
 	
 	<video autoplay muted playsinline loop 
 			src="virtuallab/samples.mp4"
 			style="width:100%; max-height:300px; margin:auto;"></video>
-	
+			
 	<p>
-		The user builds a chain of signal-processing functions by wiring up equipment.
-		Signal structs implement an interface with a voltage curve function that takes 
-		float time (seconds) and returns a float energy (voltage).
-		These are not pure functions as the equipment controls drive
-		equipment-specific variables that affect their outputs.
-		I avoid using delegates as they can easily create garbage if used improperly.
+		The data histogram and oscilloscope line graph displays
+		are shaders. These tools write incoming 
+		data to textures that these shaders can use.
 	</p>
 	
 	<br>
 	<h3>Cable visuals and performance:</h3>
 	
 	<p>
-		The cables, with physics by  
-		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>,
-		presented many performance and UX problems:
+		For cable physics I use
+		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>.
+		My Obi settings are tuned for a decent balance between visual quality and performance.
 	</p>
 	
 	<p> 
-		Cable mesh updates are extremely expensive;
+		Cable mesh updates are expensive;
 		time increases linearly with vertex count.
-		Instead of a cylindrical cable mesh, I use a flat ribbon mesh
-		with cylindrical normals to minimize the vertices Obi needs to move. 
-		I want to eventually add end cap vertices for a better cylinder look.
+		I use flat ribbon meshes with cylindrical normals 
+		to minimize vert count. 
 	</p>
 	
 	<a href="virtuallab/cables.png" target="_blank"><img src="virtuallab/cables.png"></a>
@@ -171,46 +162,43 @@
 	<p>
 		I randomize cable colors so users can keep track of
 		what is connected to what.
-		All the cables use the same material,
-		and I change the vertex colors of cable meshes when they spawn.
+		All cables use the same material with different vertex colors.
 	</p>
 	
 	<a href="virtuallab/dither.png" target="_blank"><img src="virtuallab/dither.png"></a>
 	
 	<p>
-		The cables also become semi-transparent via dithering
+		The cables become semi-transparent via dithering
 		when they may obscure important elements.
 	</p>
 		
 	<br>
 	<h3>User experience in 3D:</h3>
-		
-	<p>
-		Building good UX around the rest of the equipment's 
-		3D controls was also a challenge:
-	</p>
-	<p>
-		To prevent users from losing objects, 
-		the user cannot drop objects behind UI elements,
-		outside of the camera bounds, or while the camera is moving.
-		Held objects position using rigidbody-casts so that they don't 
-		visually clip into their surroundings.
-	</p>
 	
 	<p>
-		Supporting a variety of devices means supporting a variety of aspect ratios. 
-		I wrote an editor tool for creating camera 'frames' which position the camera 
-		so that everything fits into view regardless of aspect ratio. 
+		The user shouldn't lose draggables behind other objects or
+		off screen, so 
+		the user cannot drop objects behind UI elements,
+		outside of the camera bounds, or while the camera is moving.
+	</p>
+	<p>
+		Held objects position using rigidbody-casts so that they don't 
+		visually clip into their surroundings.
 	</p>
 	
 	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
 	
 	<p>
-		The controls must be large enough for the user to easily
-		interact with them, so the different camera frames are arranged to 
-		keep these controls at sane sizes. 
-		The equipment is also arranged to keep related frames
-		and controls within reach of one another.
+		I need to support arbitrary aspect ratios, 
+		so I wrote an editor tool for creating camera 'frames.' 
+		These keep important objects visible no matter the display aspect. 
+	</p>
+	
+	<p>
+		Controls must be large enough for easy interaction, 
+		so I position frames to	keep controls at sane screen-sizes. 
+		I also keep related frames
+		and controls close together.
 	</p>
 	
 	<video autoplay muted playsinline loop 
