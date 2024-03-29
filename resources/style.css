@@ -52,13 +52,13 @@ body {
 
 article > img, article > a > img, article > .webvid {
     width: 100%;
-	margin:20px 0;
 }
 
 .webvid {
 	padding:56.25% 0 0 0;
 	position:relative;
 	background-color:black;
+	margin: 20px 0;
 }
 
 .webvid * {
@@ -74,7 +74,11 @@ iframe {
 }
 
 a {
-    color: #e65f54;
+	color: #e65f54;
+}
+
+a img {
+	vertical-align:top;
 }
 
 a:hover {
