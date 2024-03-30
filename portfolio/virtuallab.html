@@ -37,13 +37,12 @@
 	<h2>tl;dr</h2>
 	<p>
 		This is a virtual lab for nuclear engineering undergrads.
-		I'm responsible for all design, artwork, and (nearly all) programming.
+		I'm responsible for all design, artwork, and (nearly all) programming;
 		I built the lab in Unity and created the visuals
 		in Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
 	</p>
 	<p>
-		
-		The project was led by Purdue University Prof. Stylianos Chatzidakis to increase
+		Purdue University Prof. Stylianos Chatzidakis led this project to increase
 		access to curriculum-necessary lab equipment.
 	</p>
 	
@@ -66,16 +65,16 @@
 	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
 	
 	<p>
-		These virtual tools are close matches to their real counterparts, 
+		These appliances are close matches to their real counterparts, 
 		so a student should be able to use the real equipment after using this.
 		All of the controls (knobs, dials, switches, etc) 
-		are fully and functional.
+		are fully functional.
 	</p>
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
 	
 	<p>
-		This runs in a browser and is optimized for low-spec devices
+		The lab runs in a browser and is optimized for low-spec devices
 		such as Chromebooks and tablets.
 		There are max 25,000 triangles rendered across 22 draw events.
 		The lab's load size is just under 50mb.
@@ -84,17 +83,15 @@
 	<a href="virtuallab/Screenshot_3.png" target="_blank"><img src="virtuallab/Screenshot_3.png"></a>
 	
 	<p>
-		Some subtle details:
+		Some subtle details in the models:
 		<ul>
-			<li>The models have less texel density on faces that I know
-				are mostly obscured or unseen.
-			<li>Lighting is baked directly into equipment textures using 
-				Blender / Cycles since each only appears once. 
-				Static elements use these textures with a simple unlit material. 
+			<li>Texel density is lower on obscured or unseen faces.
+			<li>Lighting is baked directly into unlit equipment materials using 
+				Blender / Cycles since each only appears once.
 			<li>I created specific reflection cubemaps for many non-static 
-				buttons and dials to eliminate incorrect specular highlights.
-			<li>Some movable objects drop soft-shadow decals to make it easier to judge
-			their position.
+				buttons and dials to prevent incorrect specular highlights.
+			<li>Some movable objects drop soft-shadow decals to make their position
+			easier to read.
 		</ul>
 	</p>
 	
@@ -118,25 +115,26 @@
 		I modeled the equipment behavior in C#.
 	</p>
 	
-	<a href="virtuallab/editor.png" target="_blank"><img src="virtuallab/editor.png"></a>
-	
-	<p>
-		The lab targets 100,000 data samples per second,
-		each a signal processed by all the equipment.
-		Being a web app,
-		I'm limited to a single CPU core 
-		and can't use Unity's Burst compiler;
-		even so, low-spec devices run the simulation at full speed.
-	</p>
-	
 	<video autoplay muted playsinline loop 
 			src="virtuallab/samples.mp4"
 			style="width:100%; max-height:300px; margin:auto;"></video>
-			
+	
+	<p>
+		The lab targets 100,000 data samples per second,
+		each a voltage curve signal processed by the equipment.
+		Being a web app, I'm limited to a single CPU core 
+		and can't use Unity's Burst compiler.
+		Even so, low-spec devices run the simulation at full speed.
+	</p>
+	
+	<video autoplay muted playsinline loop 
+			src="virtuallab/graph.mp4"
+			style="width:100%; max-height:300px; margin:auto;"></video>
+	
 	<p>
 		The data histogram and oscilloscope line graph displays
-		are shaders. These tools write incoming 
-		data to textures that these shaders can use.
+		are shaders. Some equipment will write incoming 
+		data to textures that these shaders display as a graph.
 	</p>
 	
 	<br>

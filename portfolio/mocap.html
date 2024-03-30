@@ -17,7 +17,7 @@
 
 <article>
 
-	<h1>VR+mocap prototype</h1>
+	<h1>VR + mocap prototype</h1>
 	
 	<h3>
 		Combining VR and full-body motion capture for highly physical virtual experiences.<br>
@@ -37,20 +37,18 @@
 	
 	<h2>tl;dr</h2>
 	<p>
-		This is a prototype VR multiplayer sword dueling game
-		using Unity, an OptiTrack stage, and several CC0 art assets.
-		Two players face off with physical foam swords on a motion capture stage.
-		The capture data is streamed to the VR headsets to drive visuals that align 
-		with the real world. 
-		Still a prototype, most of the visuals are placeholders.
+		This is a prototype VR game;
+		two players fight with foam swords on a motion capture stage.
+		The capture data is streamed to the VR headsets to drive 
+		lightsabers and full-body characters.
 	</p>
 	
 	<h2>tracking &amp; calibration</h2>
 	
 	<p>
-		I am using an OptiTrack mocap system, and OptiTrack's
-		official plugin for Unity does not support 1:1 skeletal
-		tracking nor Android / Meta Quest. 
+		OptiTrack's
+		official plugin for Unity supports neither 1:1 skeletal
+		tracking nor Android &amp; Meta Quest. 
 		I instead modified an old 
 		<a href="https://github.com/XmanLCH/MotiveDirect" target="_blank">
 			third-party plugin compatible with Android</a> 
@@ -63,10 +61,10 @@
 	<p>
 		While OptiTrack supports VR headset tracking, 
 		the Meta Quest already tracks itself and with less latency.
-		I wrote a calibration solution to align a headset's 
-		spatial orientation to the mocap system's.
+		I wrote a system to calibrate a headset's 
+		spatial orientation to the mocap stage's.
 		Once calibrated, the headset is responsible for its own
-		tracking as usual. 
+		tracking.
 	</p>
 	
 	<p>
@@ -77,19 +75,16 @@
 	
 	<h2>visuals</h2>
 	
-	<a href="mocap/saber1.png" target="_blank"><img src="mocap/saber1.png"></a>
-	
 	<p>
 		Over-exposed light trails are a lightsaber signature.
-		While still a prototype, it just wouldn't be the same without them.
-		I achieve these with a simple custom mesh trail with a fixed topology 
-		moving existing vertices rather than regenerating the whole mesh.
+		I wrote a simple mesh trail script to move vertices behind
+		sabers as they swing.
 	</p>
 	
 	<a href="mocap/scene1.png" target="_blank"><img src="mocap/scene1.png"></a>
 	
 	<p>
-		I remixed several CC0 assets from 
+		I used several CC0 assets from 
 		<a href="https://polyhaven.com" target="_blank">PolyHaven.com</a>
 		and <a href="https://ambientcg.com" target="_blank">AmbientCG.com</a>
 		to create a placeholder lava planet environment.
