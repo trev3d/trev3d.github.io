@@ -37,7 +37,7 @@
 	<h2>tl;dr</h2>
 	<p>
 		This is a virtual lab for nuclear engineering undergrads.
-		I'm responsible for all design, artwork, and (nearly all) programming;
+		I'm responsible for the design, artwork, and (nearly all) programming;
 		I built the lab in Unity and created the visuals
 		in Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
 	</p>
@@ -65,22 +65,13 @@
 	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
 	
 	<p>
-		These appliances are close matches to their real counterparts, 
-		so a student should be able to use the real equipment after using this.
-		All of the controls (knobs, dials, switches, etc) 
-		are fully functional.
-	</p>
-	
-	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
-	
-	<p>
 		The lab runs in a browser and is optimized for low-spec devices
 		such as Chromebooks and tablets.
 		There are max 25,000 triangles rendered across 22 draw events.
 		The lab's load size is just under 50mb.
 	</p>
 	
-	<a href="virtuallab/Screenshot_3.png" target="_blank"><img src="virtuallab/Screenshot_3.png"></a>
+	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
 	
 	<p>
 		Some subtle details in the models:
@@ -95,14 +86,23 @@
 		</ul>
 	</p>
 	
+	<video autoplay muted playsinline loop 
+		src="virtuallab/controls.mp4"
+		style="width:100%; max-height:300px; margin:auto;"></video>
+	
+	<p>
+		All of the equipment controls are modeled and fully functional.
+	</p>
+	
+	<a href="virtuallab/Screenshot_3.png" target="_blank"><img src="virtuallab/Screenshot_3.png"></a>
+	
 	<h2>programming</h2>
 	
 	<a href="virtuallab/editor2.png" target="_blank"><img src="virtuallab/editor2.png"></a>
 	
 	<p>
-		Built in Unity, I'm responsible for most of this project's scripting
-		(UI, 3D equipment controls, object manipulation, 
-		cable management, camera framing, data graphing, etc, etc). 
+		Built in Unity, I'm responsible for all of this project's scripting
+		(minus cable physics). 
 		Like the 3D artwork, everything is profiled and optimized for low-spec devices.
 	</p>
 	
@@ -110,9 +110,10 @@
 	<h3>Signal processing and equipment simulation:</h3>
 	
 	<p>
-		Each tool simulates signal processing on voltage curve functions. 
+		Each appliance is functional and 
+		simulates inputs and outputs with voltage curve functions. 
 		With the help of Prof. Chatzidakis and his team, 
-		I modeled the equipment behavior in C#.
+		I modeled each equipment's behavior in code.
 	</p>
 	
 	<video autoplay muted playsinline loop 
@@ -121,8 +122,8 @@
 	
 	<p>
 		The lab targets 100,000 data samples per second,
-		each a voltage curve signal processed by the equipment.
-		Being a web app, I'm limited to a single CPU core 
+		each processed by the equipment.
+		Being a web-assembly app, I'm limited to a single CPU core 
 		and can't use Unity's Burst compiler.
 		Even so, low-spec devices run the simulation at full speed.
 	</p>
@@ -156,9 +157,8 @@
 	<a href="virtuallab/cables.png" target="_blank"><img src="virtuallab/cables.png"></a>
 	
 	<p>
-		I randomize cable colors so users can keep track of
-		what is connected to what.
-		All cables use the same material with different vertex colors.
+		Cable vertex colors are random
+		so that users can keep track of what is connected to what.
 	</p>
 	
 	<a href="virtuallab/dither.png" target="_blank"><img src="virtuallab/dither.png"></a>
@@ -169,25 +169,20 @@
 	</p>
 		
 	<br>
-	<h3>User experience in 3D:</h3>
+	<h3>UX in 3D:</h3>
 	
 	<p>
-		The user shouldn't lose draggables behind other objects or
+		The user shouldn't lose draggable objects behind other objects or
 		off screen, so 
-		the user cannot drop objects behind UI elements,
+		I don't allow dropping objects behind UI elements,
 		outside of the camera bounds, or while the camera is moving.
-	</p>
-	<p>
-		Held objects position using rigidbody-casts so that they don't 
-		visually clip into their surroundings.
 	</p>
 	
 	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
 	
 	<p>
-		I need to support arbitrary aspect ratios, 
-		so I wrote an editor tool for creating camera 'frames.' 
-		These keep important objects visible no matter the display aspect. 
+		Camera 'frames' keep important objects in view 
+		regardless of aspect ratio.
 	</p>
 	
 	<p>
@@ -196,20 +191,6 @@
 		I also keep related frames
 		and controls close together.
 	</p>
-	
-	<video autoplay muted playsinline loop 
-			src="virtuallab/controls.mp4"
-			style="width:100%; max-height:300px; margin:auto;"></video>
-	
-	<!--<p>
-		The only scripting that I wasn't entirely responsible for
-		was the equipment signal processing code.
-		I collaborated with Prof. Chatzidakis and his team to
-		model this equipment as I am neither an 
-		electrical engineer nor one of his nuclear engineering students.
-		I also wasn't responsible for the cable dynamics, as these are done with
-		<a href="http://obi.virtualmethodstudio.com/" target="_blank">Obi Rope</a>.
-	</p>-->
 
 </article>
 
