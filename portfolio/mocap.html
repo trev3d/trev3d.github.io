@@ -37,10 +37,10 @@
 	
 	<h2>tl;dr</h2>
 	<p>
-		This is a prototype VR game;
+		This is a prototype VR game where
 		two players fight with foam swords on a motion capture stage.
-		The capture data is streamed to the VR headsets to drive 
-		lightsabers and full-body characters.
+		The mocap data is streamed to the VR headsets to drive 
+		lightsabers and full-body characters in VR.
 	</p>
 	
 	<h2>tracking &amp; calibration</h2>
@@ -55,7 +55,7 @@
 		<a href="https://github.com/XmanLCH/MotiveDirect" target="_blank">
 			third-party plugin compatible with Android</a> 
 		to support 1:1 skeletal tracking
-		and the latest version of OptiTrack's software.
+		and the latest version of OptiTrack's NatNet API.
 	</p>
 	
 	<a href="mocap/snapshot1.png" target="_blank"><img src="mocap/snapshot1.png"></a>
@@ -63,7 +63,7 @@
 	<p>
 		While OptiTrack supports VR headset tracking, 
 		the Meta Quest already tracks itself and with less latency.
-		I wrote a system to calibrate a headset's 
+		I wrote a system to initially calibrate a headset's 
 		spatial orientation to the mocap stage's.
 		Once calibrated, the headset is responsible for its own
 		tracking.
@@ -72,9 +72,9 @@
 	<h2>visuals</h2>
 	
 	<p>
-		Over-exposed light trails are a lightsaber signature.
-		I wrote a simple mesh trail script to move vertices behind
-		sabers as they swing.
+		Bright light trails are a lightsaber signature.
+		I wrote a simple mesh trail script that moves vertices behind
+		the sabers as they swing.
 	</p>
 	
 	<a href="mocap/scene1.png" target="_blank"><img src="mocap/scene1.png"></a>
