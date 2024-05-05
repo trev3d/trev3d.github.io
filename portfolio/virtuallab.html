@@ -38,7 +38,7 @@
 	<p>
 		This is a virtual lab for nuclear engineering undergrads.
 		I'm responsible for the design, artwork, and (nearly all) programming;
-		I built the lab in Unity and created the visuals
+		built in Unity with visuals in
 		in Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
 	</p>
 	<p>
@@ -65,10 +65,10 @@
 	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
 	
 	<p>
-		The lab runs in a browser and is optimized for low-spec devices
+		The lab runs on the web, optimized for low-spec devices
 		such as Chromebooks and tablets.
-		There are max 25,000 triangles rendered across 22 draw events.
-		The lab's load size is just under 50mb.
+		There are at most 25,000 triangles rendered across 22 draw events.
+		Size is just under 50mb.
 	</p>
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
@@ -76,13 +76,13 @@
 	<p>
 		Some subtle details in the models:
 		<ul>
-			<li>Texel density is lower on obscured or unseen faces.
-			<li>Lighting is baked directly into unlit equipment materials using 
-				Blender / Cycles since each only appears once.
-			<li>I created specific reflection cubemaps for many non-static 
-				buttons and dials to prevent incorrect specular highlights.
-			<li>Some movable objects drop soft-shadow decals to make their position
-			easier to read.
+			<li>Texel density is lower on obscure / unseen surfaces.
+			<li>Lighting is baked directly into static equipment textures 
+				since each appears only once.
+			<li>I created specific reflection cubemaps for many moving buttons and dials 
+				to prevent incorrect specular highlights.
+			<li>Some moving objects drop soft-shadow decals to make their position
+				easier to read.
 		</ul>
 	</p>
 	
@@ -105,7 +105,7 @@
 	<a href="virtuallab/HVS.png" target="_blank"><img src="virtuallab/HVS.png"></a>
 	
 	<p>
-		My favorite texture is the High Voltage Supply.
+		and my favorite material is for the High Voltage Supply.
 	</p>
 	
 	
@@ -118,18 +118,18 @@
 	
 	<p>
 		Built in Unity, I'm responsible for all of this project's scripting
-		(minus cable physics). 
-		Like the 3D artwork, everything is profiled and optimized for low-spec devices.
+		(except for the cable physics). 
+		Like the 3D artwork, everything is optimized for low-spec devices.
 	</p>
 	
 	<br>
-	<h3>Signal processing and equipment simulation:</h3>
+	<h2>signal processing &amp; equipment simulation</h2>
 	
 	<p>
-		Each appliance is functional and 
-		simulates inputs and outputs with voltage curve functions. 
+		Each nuclear appliance is functional and 
+		simulates all of the necessary inputs and outputs. 
 		With the help of Prof. Chatzidakis and his team, 
-		I modeled each equipment's behavior in code.
+		I modeled each equipment's behavior in C#.
 	</p>
 	
 	<video autoplay muted playsinline loop 
@@ -154,8 +154,9 @@
 		data to textures that these shaders display as a graph.
 	</p>
 	
-	<br>
-	<h3>Cable visuals and performance:</h3>
+	
+	
+	<h2>cable visuals (obi rope)</h2>
 	
 	<p>
 		For cable physics I use
@@ -165,15 +166,14 @@
 	
 	<p> 
 		Cable mesh updates are expensive;
-		time increases linearly with vertex count.
-		I use flat ribbon meshes with cylindrical normals 
-		to minimize vert count. 
+		time increases linearly with vertex count, 
+		so I use flat ribbon meshes with cylindrical normals. 
 	</p>
 	
 	<a href="virtuallab/cables.png" target="_blank"><img src="virtuallab/cables.png"></a>
 	
 	<p>
-		Cable vertex colors are random
+		Cable colors are random
 		so that users can keep track of what is connected to what.
 	</p>
 	
@@ -184,8 +184,9 @@
 		when they may obscure important elements.
 	</p>
 		
-	<br>
-	<h3>UX in 3D:</h3>
+	
+	
+	<h2>UX considerations for 3D</h2>
 	
 	<p>
 		The user shouldn't lose draggable objects behind other objects or
