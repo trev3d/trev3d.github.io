@@ -37,9 +37,9 @@
 	<h2>tl;dr</h2>
 	<p>
 		This is a virtual lab for nuclear engineering undergrads.
-		I'm responsible for the design, artwork, and (nearly all) programming;
-		built in Unity with visuals in
-		in Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
+		I'm responsible for the design, artwork, and scripting;
+		built in Unity with visuals made in 
+		Blender, Marmoset Toolbag, Substance Painter, and Affinity Designer.
 	</p>
 	<p>
 		Purdue University Prof. Stylianos Chatzidakis led this project to increase
@@ -68,7 +68,8 @@
 		The lab runs on the web, optimized for low-spec devices
 		such as Chromebooks and tablets.
 		There are at most 25,000 triangles rendered across 22 draw events.
-		Size is just under 50mb.
+		Download size is just under 50mb (and this is without build compression because
+		I was too lazy to configure content encoding headers on our host).
 	</p>
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
@@ -76,11 +77,11 @@
 	<p>
 		Some subtle details in the models:
 		<ul>
-			<li>Texel density is lower on obscure / unseen surfaces.
-			<li>Lighting is baked directly into static equipment textures 
+			<li>Texel density is lower on obscure & unseen surfaces.
+			<li>I bake lighting directly into equipment textures (not separate lightmaps)
 				since each appears only once.
-			<li>I created specific reflection cubemaps for many moving buttons and dials 
-				to prevent incorrect specular highlights.
+			<li>Dynamic parts (dials, switches, etc) have bespoke reflection cubemaps  
+				to kill any unoccluded specular ugliness.
 			<li>Some moving objects drop soft-shadow decals to make their position
 				easier to read.
 		</ul>
@@ -103,12 +104,8 @@
 	</p>
 	
 	<a href="virtuallab/HVS.png" target="_blank"><img src="virtuallab/HVS.png"></a>
-	
-	<p>
-		and my favorite material is for the High Voltage Supply.
-	</p>
-	
-	
+	<br><br>
+	<a href="virtuallab/amp sca.png" target="_blank"><img src="virtuallab/amp sca.png"></a>
 	
 	
 	

@@ -20,7 +20,7 @@
 	<h1>VR + mocap prototype</h1>
 	
 	<h3>
-		Combining VR and full-body motion capture for highly physical virtual experiences.<br>
+		Combining VR and full-body motion capture for highly physical (and slightly dangerous) VR games.<br>
 		<img class="software-icon" src="/resources/icons/blender.png">
 		<img class="software-icon" src="/resources/icons/unity.png">
 		<img class="software-icon" src="/resources/icons/motive.png">
@@ -58,7 +58,7 @@
 	
 	<p>
 		OptiTrack's
-		official plugin for Unity supports neither 1:1 skeletal
+		official plugin for Unity annoyingly supports neither 1:1 skeletal
 		tracking nor Android &amp; Meta Quest. 
 		I instead modified an old 
 		<a href="https://github.com/XmanLCH/MotiveDirect" target="_blank">
@@ -71,34 +71,16 @@
 	
 	<p>
 		While OptiTrack supports VR headset tracking, 
-		the Meta Quest already tracks itself and with less latency.
-		I wrote a system to initially calibrate a headset's 
-		spatial orientation to the mocap stage's.
-		Once calibrated, the headset is responsible for its own
-		tracking.
+		the Quest headset already tracks itself and with much less latency.
+		I initially calibrate the headset to stage space once.
+		The headset is responsible for its own tracking from then on.
 	</p>
 	
 	<h2>visuals</h2>
 	
 	<a href="mocap/snapshot1.png" target="_blank"><img src="mocap/snapshot1.png"></a>
 	
-	<p>
-		Bright light trails are a lightsaber signature.
-		I wrote a simple mesh trail script that moves vertices behind
-		the sabers as they swing.
-	</p>
-	
 	<a href="mocap/scene1.png" target="_blank"><img src="mocap/scene1.png"></a>
-	
-	<p>
-		I used several CC0 assets from 
-		<a href="https://polyhaven.com" target="_blank">PolyHaven.com</a>
-		and <a href="https://ambientcg.com" target="_blank">AmbientCG.com</a>
-		to create a placeholder lava planet environment.
-		The robot model is a 
-		<a href="https://assetstore.unity.com/packages/3d/characters/robots/robot-kyle-urp-4696" target="_blank">
-			Unity standard asset</a>.
-	</p>
 	
 	<h2>thanks</h2>
 	<p>
@@ -108,6 +90,16 @@
 		<a href="https://www.matthewstanciu.com/" target="_blank">Matthew</a>
 		for testing and also coming on a late-night run to buy pool noodles for the swords. 
 		Thank you!
+	</p>
+	
+	<p>
+		I threw together several CC0 assets from 
+		<a href="https://polyhaven.com" target="_blank">PolyHaven.com</a>
+		and <a href="https://ambientcg.com" target="_blank">AmbientCG.com</a>
+		to create a placeholder lava planet environment.
+		The robot model is a 
+		<a href="https://assetstore.unity.com/packages/3d/characters/robots/robot-kyle-urp-4696" target="_blank">
+			Unity standard asset</a>.
 	</p>
 
 </article>
