@@ -15,10 +15,10 @@
 <a href="/mobilenav.html" id="navmobile"> Menu </a>
 <iframe id="navframe" src="/resources/nav.html"></iframe>
 
-<article>
+<main>
 	<h1>nuclear engineering<br>virtual education</h1>
 	<h3>
-		Built in Unity. Mostly solo project - responsible for nearly all artwork and programming.<br>
+		Built in Unity. Responsible for artwork and programming.<br>
 	
 		<img class="software-icon" src="/resources/icons/unity.png">
 		<img class="software-icon" src="/resources/icons/blender.png">
@@ -67,22 +67,20 @@
 	<p>
 		The lab runs on the web, optimized for low-spec devices
 		such as Chromebooks and tablets.
-		There are at most 25,000 triangles rendered across 22 draw events.
-		Download size is just under 50mb (and this is without build compression because
-		I was too lazy to configure content encoding headers on our host).
+		All 3D assets together are ~25,000 triangles rendered across 22 draw events.
+		Download size is just under 50mb.
 	</p>
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
 	
 	<p>
-		Some subtle details in the models:
 		<ul>
 			<li>Texel density is lower on obscure & unseen surfaces.
 			<li>I bake lighting directly into equipment textures (not separate lightmaps)
 				since each appears only once.
 			<li>Dynamic parts (dials, switches, etc) have bespoke reflection cubemaps  
-				to kill any unoccluded specular ugliness.
-			<li>Some moving objects drop soft-shadow decals to make their position
+				to prevent any unoccluded specular ugliness.
+			<li>Some movable objects drop soft-shadow decals to make their 3D position
 				easier to read.
 		</ul>
 	</p>
@@ -96,18 +94,8 @@
 	</p>
 	
 	<a href="virtuallab/knurling.png" target="_blank"><img src="virtuallab/knurling.png"></a>
-	
-	<p>
-		My favorite piece of geometry is probably the 
-		high-poly detectors with their knurling;
-		not necessarily a difficult trick, but always satisfying :)
-	</p>
-	
 	<a href="virtuallab/HVS.png" target="_blank"><img src="virtuallab/HVS.png"></a>
-	<br><br>
 	<a href="virtuallab/amp sca.png" target="_blank"><img src="virtuallab/amp sca.png"></a>
-	
-	
 	
 	<h2>programming</h2>
 	
@@ -116,14 +104,13 @@
 	<p>
 		Built in Unity, I'm responsible for all of this project's scripting
 		(except for the cable physics). 
-		Like the 3D artwork, everything is optimized for low-spec devices.
+		Like the visuals, everything is optimized for low-spec devices.
 	</p>
 	
-	<br>
 	<h2>signal processing &amp; equipment simulation</h2>
 	
 	<p>
-		Each nuclear appliance is functional and 
+		Each appliance is functional and 
 		simulates all of the necessary inputs and outputs. 
 		With the help of Prof. Chatzidakis and his team, 
 		I modeled each equipment's behavior in C#.
@@ -136,8 +123,7 @@
 	<p>
 		The lab targets 100,000 data samples per second,
 		each processed by the equipment.
-		Being a web-assembly app, I'm limited to a single CPU core 
-		and can't use Unity's Burst compiler.
+		Being a web-assembly app, I'm practically limited to a single CPU core.
 		Even so, low-spec devices run the simulation at full speed.
 	</p>
 	
@@ -171,7 +157,7 @@
 	
 	<p>
 		Cable colors are random
-		so that users can keep track of what is connected to what.
+		so that users can easily see where they lead.
 	</p>
 	
 	<a href="virtuallab/dither.png" target="_blank"><img src="virtuallab/dither.png"></a>
@@ -183,20 +169,22 @@
 		
 	
 	
-	<h2>UX considerations for 3D</h2>
+	<h2>user experience</h2>
 	
 	<p>
-		The user shouldn't lose draggable objects behind other objects or
-		off screen, so 
+		The user must not be allowed to lose draggable objects 
+		behind other objects or off screen, so 
 		I don't allow dropping objects behind UI elements,
-		outside of the camera bounds, or while the camera is moving.
+		outside of the camera bounds, or while the camera is transitioning.
 	</p>
 	
 	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
 	
 	<p>
 		Camera 'frames' keep important objects in view 
-		regardless of aspect ratio.
+		regardless of aspect ratio (especially important since
+		the sidebar menu is resizable and affects the size of
+		the 3D view region).	
 	</p>
 	
 	<p>
@@ -206,7 +194,7 @@
 		and controls close together.
 	</p>
 
-</article>
+</main>
 
 </body>
 </html>
