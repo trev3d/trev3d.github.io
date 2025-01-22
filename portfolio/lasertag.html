@@ -37,13 +37,12 @@
 	
 	<p>
 		<i>Lasertag</i> (one word) is an experiment in reducing the friction
-		of mixed reality games. 
-		The goal is to make something that is super flexible and 'just works.'
+		of mixed reality games with something that 'just works.'
 		
 	<p>
-		It requires little prior setup, progressively maps and syncs room 'geometry'
-		(height, really) between all players over the network, and connects headsets
-		to games automatically.
+		It requires little prior setup, progressively scans and syncs room geometry
+		between all players over the network, 
+		and connects nearby headsets automatically.
 		
 	<p>
 		The game runs on Meta Quest 3/3s and is built on Unity using their
@@ -77,17 +76,16 @@
 	</div>
 		
 	<p>
-		The game uses Quest's built-in depth estimation API to progressively and
-		collectively map the playspace for laser collision.
-		Headsets stream their scan to other headsets and they all
-		build a shared heightmap as they move around.
+		The app uses Quest's depth estimation to progressively and
+		collectively map the playspace for laser collision via compute kernels.
+		Headsets stream their scans to other headsets and they all
+		add to a shared heightmap.
 		
 	<p>
 		This way, even if Headset #1 isn't close enough to scan what Headset #2 
-		is hiding behind, #1 will know something is in the way.
-		
-	<p>
-		There is no 'environment mesh' (except for debug visuals).
+		is hiding behind, #1 will still know that something is there because #2
+		will stream its scan.
+
 		
 	<h2>depth lighting</h2>
 	
@@ -102,8 +100,9 @@
 		They're like rudimentary deferred point lights.
 		
 	<p>
-		These are expensive due to alpha blending and 
-		I still need to optimize them.
+		These are expensive 
+		(alpha blended fragments that often overlap and cover the whole view)
+		and I still need to optimize them.
 		
 	<h2 id="known_issues">known issues</h2>
 	
@@ -112,21 +111,14 @@
 	
 	<ul>
 		<li>Headsets must be on the same subnet to connect.
-		<ul><li>I plan to fall back onto Unity's first party relay service
-		when necessary.</ul>
-		<li>Meta's shared anchors are finicky. Sometimes they won't upload or download.
-			<ul><li>Meta anchors are a cloud service 
-			and require a decent internet connection.
-			<li>I plan to use keyboard tracking as an alternative
-			colocation solution.
-			</ul>
+		<li>Meta's shared anchors are finicky and often fail.
 		<li>Players' virtual avatars will drift and dislocate
 		from their real bodies over time.
-		<li>Playspace map syncing will occasionally cause app crashes.
-		<li>Depth-lights, being alpha-blended & often full-screen, are slow.
+		<li>Playspace map syncing will occasionally cause crashes.
+		<li>Depth-lights are unoptimized.
 		<li>Distant lasers and avatars are invisible due to limited depth-occlusion
 		range.
-		<li>The playspace mapper will see and add players to the heightmap.
+		<li>The playspace mapper will add other players' bodies to the heightmap.
 		<li>The mapper generally needs better filtering and validation.
 		<li>All of the visuals are placeholders.
 	</ul>
@@ -200,11 +192,9 @@
 		Purdue Hackers</a> and its members. Super helpful with
 		playtesters and a source of free snacks. 
 		
-		<br><br>
-		
 		<li>Ernesto, who drew several blaster designs that I need to finish
 		as 3D models.
-		This project is dedicated to you.  We all miss you dude. 
+		This project is dedicated to him. We all miss you dude. 
 
 </main>
 
