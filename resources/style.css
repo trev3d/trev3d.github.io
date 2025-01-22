@@ -178,6 +178,7 @@ main {
 	height: 1em;
 	display: inline;
 	vertical-align: baseline;
+	margin-bottom:0;
 }
 
 .circlesPacked {
@@ -249,6 +250,7 @@ main {
 }
 
 #backgroundGlyph {
+	/*
 	position:fixed;
 	width:700px;
 	height:700px;
@@ -259,6 +261,10 @@ main {
 	background-position: left bottom;
 	background-repeat: no-repeat;
 	z-index:-100;
+	display: none; 
+	*/
+	
+	display:none;
 }
 
 @media screen and (max-width: 700px) {

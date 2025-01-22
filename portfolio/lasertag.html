@@ -17,9 +17,9 @@
 
 <main>
 
-	<h1>mixed reality lasertag prototype</h1>
+	<h1>xr laser tag</h1>
 	<h3>
-		Turn any space into a laser tag arena for you and your friends.<br>
+		Turn any space into a laser tag arena with a single press<br>
 
 		<img class="software-icon" src="/resources/icons/meta.png">
 		<img class="software-icon" src="/resources/icons/unity.png">
@@ -27,92 +27,184 @@
 	</h3>
 	
 	<div class="webvid verticalvid">
-		<iframe src="https://player.vimeo.com/video/936885909?h=dddc621&autoplay=1&loop=1&color=e65f54&byline=0&portrait=0&muted=1"
+		<iframe src="https://player.vimeo.com/video/1048179602
+		?h=dddc621&autoplay=1&loop=1&color=e65f54&byline=0&portrait=0&muted=1"
 		allow="autoplay; fullscreen; picture-in-picture" 
 		style = "height:100%;"allowfullscreen></iframe>
 	</div>
 	
+	<h2>tl;dr</h2>
+	
 	<p>
-		I want mixed reality to be more than just a gimmick;
-		I want games that don't just exist in your environment,
-		but respond to it and take advantage of it. 
+		<i>Lasertag</i> (one word) is an experiment in reducing the friction
+		of mixed reality games. 
+		The goal is to make something that is super flexible and 'just works.'
 		
-		I also want games that encourage physical movement
-		and real-life socializing. 
-	</p>
 	<p>
-		This prototype is my effort to make such a game.
-		It is a co-located multiplayer mixed reality app that turns any space
-		into a large-scale laser tag arena for you and your friends. 
-	</p>
-	
-	<h3><br>environment depth understanding</h3>
-	
-	<a href="lasertag/depth.png" target="_blank">
-		<img src="lasertag/depth.png"
-		style="  padding: inherit; margin:auto; max-width: 300px; display: block;">
-	</a>
+		It requires little prior setup, progressively maps and syncs room 'geometry'
+		(height, really) between all players over the network, and connects headsets
+		to games automatically.
+		
+	<p>
+		The game runs on Meta Quest 3/3s and is built on Unity using their
+		first-party Netcode for GameObjects package. You can try the game 
+		<a href="https://www.meta.com/s/59aIPXxXi" target="_blank">
+		here >>>
+		</a>
+		
+	<h2>simple setup</h2>
 	
 	<p>
-		Laser bullets hit real objects using the headset's live 
-		depth understanding.
-		Players are meant to run around and duck behind cover in their physical space.
-	</p>
+		In order to play, players must do the following:
 	
-	<p>
-		This technique does have a major drawback:
-		players can't hit what the headset can't see, 
-		so you can't shoot around corners or behind yourself.
-	</p>
-	<p>
-		However, this technique doesn't require that each player
-		spend several minutes carefully scanning their space.
-		Using live depth makes setup much faster and more convenient.
-	</p>
-	
-	<h3><br>starting a match</h3>
-	
-	<a href="lasertag/servers.jpg" target="_blank">
-		<img src="lasertag/servers.jpg">
-	</a>
-	
-	<p>
-		Starting a game should be frictionless, but
-		manually connecting several headsets can be cumbersome.
-		The headsets automatically finds sessions on the local network
-		so you don't have to manually exchange and enter IP addresses.
-	</p>
-	
-	<h3><br>colocation anchors</h3>
-	
-	<video autoplay muted playsinline loop 
-			src="lasertag/anchors.mp4"
-			style="width:100%; max-height:512px; margin:auto;"></video>
-	
-	<p>
-		All the headset orientations sync up automatically.
-		The host can drop and sync spatial anchors for the other
-		headsets to calibrate to. The game supports multiple anchors
-		so that you can build an arena spanning several rooms. 
-	</p>
-	
-	<h3><br>third party art assets</h3>
-	<p>
-		The demo video at the top of the page uses these placeholder assets:
-	</p>
 	<ul>
-		<li><a href="https://sketchfab.com/3d-models/ray-gun-10b58d9be71d4003847e72d8d5e1dafe" target="_blank">
-			Raygun Model by nightwolf7578</a>
-		<li><a href="https://sketchfab.com/3d-models/helmet-v1-f0e261d8bca74c59bc12c854260f51cb" target="_blank">
-			Space Helmet by alienmonkei</a>
+		<li>1. Everyone puts on their headset
+		<li>2. Everyone connects to the same wifi network
+		<li>3. Everyone launches the app
+		<li>4. One person presses the 'host' button
 	</ul>
 	
-	<h3><br>special thanks</h3>
 	<p>
-		I'd like to thank my friend
-			<a href="https://fizzyapple12.com/" target="_blank">Hazel</a>
-		for testing and troubleshooting!
-	</p>
+		From there, all nearby headsets (should) connect and colocate automatically.
+		Limitations are detailed in '<a href="#known_issues">known issues</a>.'
+		
+	<h2>progressive network-synced environment mapping</h2>
+			
+	<div class="webvid">
+		<iframe src="https://www.youtube.com/embed/oJ_fFONAEQ4"
+			allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+			allowfullscreen></iframe>
+	</div>
+		
+	<p>
+		The game uses Quest's built-in depth estimation API to progressively and
+		collectively map the playspace for laser collision.
+		Headsets stream their scan to other headsets and they all
+		build a shared heightmap as they move around.
+		
+	<p>
+		This way, even if Headset #1 isn't close enough to scan what Headset #2 
+		is hiding behind, #1 will know something is in the way.
+		
+	<p>
+		There is no 'environment mesh' (except for debug visuals).
+		
+	<h2>depth lighting</h2>
+	
+	<div class="webvid">
+		<iframe src="https://www.youtube.com/embed/yxDhCg-q0JU?t=26s"
+			allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+			allowfullscreen></iframe>
+	</div>
+	
+	<p>
+		Laser's lights are inverted sphere meshes with a depth/normal-sampling shader.
+		They're like rudimentary deferred point lights.
+		
+	<p>
+		These are expensive due to alpha blending and 
+		I still need to optimize them.
+		
+	<h2 id="known_issues">known issues</h2>
+	
+	<p>
+		The game still has many problems I need to solve:
+	
+	<ul>
+		<li>Headsets must be on the same subnet to connect.
+		<ul><li>I plan to fall back onto Unity's first party relay service
+		when necessary.</ul>
+		<li>Meta's shared anchors are finicky. Sometimes they won't upload or download.
+			<ul><li>Meta anchors are a cloud service 
+			and require a decent internet connection.
+			<li>I plan to use keyboard tracking as an alternative
+			colocation solution.
+			</ul>
+		<li>Players' virtual avatars will drift and dislocate
+		from their real bodies over time.
+		<li>Playspace map syncing will occasionally cause app crashes.
+		<li>Depth-lights, being alpha-blended & often full-screen, are slow.
+		<li>Distant lasers and avatars are invisible due to limited depth-occlusion
+		range.
+		<li>The playspace mapper will see and add players to the heightmap.
+		<li>The mapper generally needs better filtering and validation.
+		<li>All of the visuals are placeholders.
+	</ul>
+		
+	<h2>download</h2>
+	
+	<p>
+		The game is still pretty bare-bones. 
+		There are no objectives, rounds, teams, etc.
+		Only you, your friends, and laser guns.
+		If you'd like to try it out, you can join the beta release channel:
+	
+	<p>
+	<h3><a href="https://www.meta.com/s/59aIPXxXi" target="_blank">
+		Beta Release Channel >>>
+	</a></h3>
+	
+	<p>
+		<a href="https://discord.gg/DgTqG5A6BD" target="_blank">
+		Discord >>></a>
+		If you run into <i>any</i> issues or have any feedback, please
+		reach out by email or join the discord.
+		
+	<p>
+		<a href="https://github.com/anaglyphs/lasertag" target="_blank">
+		GitHub repo >>></a>
+		The project is available on GitHub under the MIT license.
+		Feel free to reference (or steal) code for your own projects :)
+		
+	<h2>special thanks</h2>
+	
+	<ul>
+	
+		<li><a href="https://fizzyapple12.com" target="_blank">
+		Hazel Roeder</a> 
+		helped with some early programming and a ton of testing.
+		
+		<li><a href="https://www.rcac.purdue.edu/about/staff/gtakahas" target="_blank">
+		George Takahashi</a>
+		
+		<li><a href="https://www.matthewstanciu.com" target="_blank">
+		Matthew Stanciu</a>
+		
+		<li><a href="https://www.jackhogan.me" target="_blank">
+		Jack Hogan</a>
+		
+		<li><a href="https://www.artstation.com/ratlz" target="_blank">
+		Blake Edwards</a>
+		
+		<li><a href="https://discord.com/invite/Emxq4dBj8G" target="_blank">
+		MelancholySeabiscuit</a>
+		
+		<li><a href="https://www.artstation.com/uninspirational" target="_blank">
+		William Yang</a>
+		
+		<li><a href="https://alanocull.com" target="_blank">
+		Alan O'Cull</a>
+		
+		<li><a href="https://www.navinate.com" target="_blank">
+		Trey Cluff</a>
+		
+		<li>fleech
+		
+		<li><a href="https://www.codehusky.com" target="_blank">
+		Loki</a>
+		
+		<li><a href="https://hellfire.tv" target="_blank">
+		Ben B.</a>
+		
+		<li><a href="https://www.purduehackers.com" target="_blank">
+		Purdue Hackers</a> and its members. Super helpful with
+		playtesters and a source of free snacks. 
+		
+		<br><br>
+		
+		<li>Ernesto, who drew several blaster designs that I need to finish
+		as 3D models.
+		This project is dedicated to you.  We all miss you dude. 
 
 </main>
 
