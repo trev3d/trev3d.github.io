@@ -1,11 +1,29 @@
 @font-face {
     font-family: title;
-    src: url('/resources/D-DINExp-Bold.otf');
+    src: url('/resources/Altinn-DINExp-Bold.otf');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
     font-family: body;
     src: url('/resources/Altinn-DIN.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: body;
+    src: url('/resources/Altinn-DIN-Bold.otf');
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: body;
+    src: url('/resources/Altinn-DIN-Italic.otf');
+    font-weight: normal;
+    font-style: italic;
 }
 
 html {
@@ -47,8 +65,6 @@ body {
     margin:0;
     line-height: 1.5em;
 	background-color: #3a2216;
-/* 	background-image:url('/resources/paper.png'); */
-/* 	background-attachment: fixed; */
 	overflow-x: hidden;
 }
 
@@ -77,16 +93,21 @@ iframe {
 }
 
 a {
-	color: #ffed4d;
+	color: #FEE400;
 	
-}
-
-a:hover {
-    color: #fee400;
 }
 
 a img {
 	margin:0;
+}
+
+.viewerOptions {
+	background-color:#171412;
+	padding: 10px 20px 10px 30px; 
+	position:absolute; 
+	right:0px; bottom:0px; 
+	font-family:title; 
+	border-radius: 40px 0 0 0;
 }
 
 #navmobile {
@@ -117,15 +138,6 @@ a img {
 	overflow:visible;
 }
 
-.viewerOptions {
-	background-color:#171412;
-	padding: 10px 20px 10px 30px; 
-	position:absolute; 
-	right:0px; bottom:0px; 
-	font-family:title; 
-	border-radius: 40px 0 0 0;
-}
-
 nav {
 	margin:auto;
 	padding:0;
@@ -147,12 +159,6 @@ nav {
 	background-color: #e65f54;
     border-radius: 100px 100px 10px 10px;
 }
-
-/* 
-nav, #navmobile, .packedCircle {
-	box-shadow: 0px 10px 20px #00000050;
-}
- */
 
 nav a {
     color: #ffffff;
@@ -218,7 +224,6 @@ main {
 }
 
 .packedCircle:hover {
-	/* box-shadow: 0px 0px 50px #ffad8f; */
 	background-color: #fee400;
 }
 
@@ -320,10 +325,6 @@ main {
 	
 	main ul {
 		padding-left: 30px;
-	}
-	
-	#backgroundGlyph {
-		display: none;
 	}
 	
 	.verticalvid {
