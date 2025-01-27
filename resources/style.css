@@ -1,11 +1,11 @@
 @font-face {
     font-family: title;
-    src: url('/resources/SpaceMono-Regular.ttf');
+    src: url('/resources/D-DINExp-Bold.otf');
 }
 
 @font-face {
     font-family: body;
-    src: url('/resources/NanumMyeongjo-Regular.ttf');
+    src: url('/resources/Altinn-DIN.otf');
 }
 
 html {
@@ -43,7 +43,7 @@ body {
     color: #FFFFFF;
     padding: 65px 25px 25px 25px;
     margin:0;
-    line-height: 2em;
+    line-height: 1.5em;
 	background-color: #3a2216;
 /* 	background-image:url('/resources/paper.png'); */
 /* 	background-attachment: fixed; */
@@ -91,9 +91,8 @@ a img {
 	width: 80px;
 	left: 0;
 	right: 0;
-	height: 50px;
 	margin: 0;
-	padding: 5px 25px 10px 25px;
+	padding: 10px 25px 12px 25px;
 	top: 0;
 	position:fixed;
 	color: #ffffff;
@@ -103,7 +102,7 @@ a img {
 	z-index: 99 !important;
 	border-radius: 0 0 50px 0;
 	color: #ffffff;
-	text-decoration: none;
+	text-decoration:none;
 }
 
 #navframe {
@@ -154,17 +153,22 @@ nav, #navmobile, .packedCircle {
 
 nav a {
     color: #ffffff;
+    text-decoration:none;
+}
+
+nav a:hover {
+    text-decoration:underline;
 }
 
 nav ul {
     margin: 0;
-    line-height: 1;
+    line-height: 1em;
     padding: 0 15px;
     list-style-type: none;
 }
 
 nav li {
-    padding-bottom: 15pt;
+    padding-bottom: 10pt;
 	line-height:1em;
 }
 
@@ -243,10 +247,11 @@ main {
     left:50%;
     transform:translateX(-50%) translateY(-50%);
 	width: 70%;
-	line-height:1.2em;
+	line-height:1.1em;
+	font-size:1.1em;
 	font-family:title;
 	color:white;
-	text-decoration:underline;
+	text-decoration:none;
 }
 
 .packedCircle:hover .thumbtext {
@@ -293,10 +298,6 @@ main {
 	main {
 		margin-left:0;
 	}
-	
-	main p, h1, h2, h3 {
-		padding:0 10px 0 10px;
-	}
 
     #navframe {
         display: none;
@@ -311,19 +312,20 @@ main {
 		padding-right:0px;
 	}
 	
+	main p, h1, h2, h3, ul {
+		padding:0 10px 0 10px;
+	}
+	
+	main ul {
+		padding-left: 30px;
+	}
+	
 	.circlesPacked {
 		margin:0;
 		padding:50px 0;
 	}
 	
 	#backgroundGlyph {
-		/* position:fixed;
-		width:100%;
-		
-		bottom:0;
-		left:-15%;
-		opacity:2%; */
-		
 		display: none;
 	}
 	
