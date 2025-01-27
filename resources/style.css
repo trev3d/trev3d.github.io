@@ -14,9 +14,11 @@ html {
 	font-size:1.2em;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h3 p {
 	font-weight: normal;
     font-family: title, sans-serif;
+	margin:0.3em 0;
+	line-height:1.2em;
 }
 
 h1 {
@@ -26,8 +28,8 @@ h1 {
 
 h2 {
     font-size: 2em;
-	margin-top:75px;
-	margin-bottom:20px;
+	margin-top:1.5em;
+	
 }
 
 h3 {
@@ -59,7 +61,7 @@ main img, main .webvid {
 	padding:56.25% 0 0 0;
 	position:relative;
 	background-color:black;
-	margin: 20px 0;
+	margin-bottom:0;
 }
 
 .webvid * {
@@ -76,6 +78,7 @@ iframe {
 
 a {
 	color: #ffed4d;
+	
 }
 
 a:hover {
@@ -83,7 +86,7 @@ a:hover {
 }
 
 a img {
-	vertical-align:top;
+	margin:0;
 }
 
 #navmobile {
@@ -181,7 +184,7 @@ main {
 	height: 1em;
 	display: inline;
 	vertical-align: baseline;
-	margin-bottom:0;
+	margin:0;
 }
 
 .circlesPacked {
@@ -189,6 +192,14 @@ main {
 	margin:-75px -50px;
 	padding:100px 50px;
 	overflow: auto;
+}
+
+.circlesPacked a:nth-child(4n+3) {
+	margin-left:20.5%;
+}
+
+.circlesPacked a:nth-child(4n+5) {
+	clear:left;
 }
 
 .packedCircle {
@@ -258,15 +269,6 @@ main {
 	display:block;
 }
 
-
-.circlesPacked a:nth-child(4n+3) {
-	margin-left:20.5%;
-}
-
-.circlesPacked a:nth-child(4n+5) {
-	clear:left;
-}
-
 #backgroundGlyph {
 	/*
 	position:fixed;
@@ -288,11 +290,11 @@ main {
 @media screen and (max-width: 700px) {
 
     h1 {
-        font-size: 35px;
+        font-size: 2em;
     }
 
     h2, h3 {
-        font-size: 25px;
+        font-size: 1.5em;
     }
 	
 	main {
@@ -312,17 +314,12 @@ main {
 		padding-right:0px;
 	}
 	
-	main p, h1, h2, h3, ul {
+	main > p, h1, h2, h3, ul {
 		padding:0 10px 0 10px;
 	}
 	
 	main ul {
 		padding-left: 30px;
-	}
-	
-	.circlesPacked {
-		margin:0;
-		padding:50px 0;
 	}
 	
 	#backgroundGlyph {
@@ -331,5 +328,29 @@ main {
 	
 	.verticalvid {
 		padding:100% 0 0 0;
+	}
+}
+
+@media screen and (max-width: 500px) {
+		
+	.circlesPacked {
+		margin:0;
+		padding:50px 0;
+		padding-top:0;
+	}
+	
+	.circlesPacked a:nth-child(1n) {
+		margin:3%;
+	}
+	
+	.packedCircle {
+		overflow: hidden;
+		position: relative;
+
+		width: 94%;
+		padding-bottom: 94%;
+		height: 0;
+		
+		display: inline;
 	}
 }
