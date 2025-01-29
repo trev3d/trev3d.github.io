@@ -234,6 +234,7 @@ main {
 	position:absolute;
 	border-radius:50%;
 	line-height: 90%;
+	object-fit: cover;
 }
 
 .packedCircle:hover .thumbnail {
