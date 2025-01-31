@@ -144,10 +144,10 @@ nav {
 	margin:50px auto 50px auto;
 	position:relative;
 	
-    text-align: center;
-
-    font-family: title, sans-serif;
-    font-size: 30px;
+    text-align: right;
+	
+	font-size:0.8em;
+    font-family: body, sans-serif;
 
 	width: 150px;
 
@@ -162,7 +162,6 @@ nav {
 
 nav a {
     color: #ffffff;
-    text-decoration:none;
 }
 
 nav a:hover {
@@ -171,14 +170,13 @@ nav a:hover {
 
 nav ul {
     margin: 0;
-    line-height: 1em;
+    line-height: 1.2em;
     padding: 0 15px;
     list-style-type: none;
 }
 
 nav li {
     margin:8pt 0;
-	line-height:1em;
 }
 
 main {
