@@ -45,12 +45,11 @@
 	<p>
 		The game runs on Meta Quest 3/3s and is built on Unity using their
 		first-party Netcode for GameObjects package.
-	<p>
-	<h3>
-		<a href="https://www.meta.com/s/59aIPXxXi" target="_blank">
-			Join the beta for Meta Quest 3/3s ➔
-		</a>
-	</h3>
+	
+	<p><h3><a href="https://anagly.ph" target="_blank">
+	Website ➔</a></h3>
+	<p><h3><a href="https://github.com/anaglyphs/lasertag" target="_blank">
+	GitHub repo ➔</a></h3>
 		
 	<h2>Simple setup</h2>
 	<ul>
@@ -62,9 +61,8 @@
 	
 	<p>
 		From there, all nearby headsets (should) connect and colocate automatically.
-		Limitations are detailed in '<a href="#known_issues">known issues</a>.'
 		
-	<h2>Room mapping</h2>
+	<h2 id="room-mapping">Room mapping</h2>
 	<h3>Progressive and network-synced</h3>
 			
 	<div class="webvid">
@@ -73,19 +71,26 @@
 			allowfullscreen></iframe>
 	</div>
 		
-	<p>
-		The app uses Quest's depth estimation to progressively
-		map the playspace (rooms, walls, furniture, etc)
-		for laser collision via compute kernels.
-		Headsets stream their scans to other headsets and they all
-		add to a shared heightmap.
+	<p>I use Quest's depth texture to progressively
+		scan the playspace (rooms, walls, furniture, etc.) and build a 
+		heightmap that I also sync between all headsets.
+		This means that if Headset #1 isn't close enough to see what Headset #2 
+		is hiding behind, #2 will still tell #1 that something is there.
 		
-	<p>
-		This way, even if Headset #1 isn't close enough to scan what Headset #2 
-		is hiding behind, #2 will tell #1 that something is there.
+	<p>Currently, I only use this network-synced heightmap 
+		for bullet collision, but I plan on testing everything 
+		from fire-spreading molotovs to a sSlatoon-like game mode.
+		
+	<p>For each headset, a compute kernel samples the Quest's depth texture 
+		and writes to a per-frame uint32 heightmap texture using InterlockedMax
+		and some filtering rules (such as ignoring depth-samples with 
+		extreme gradients as edges).
+		I then write this to a persistent float texture, as well as 
+		stream the per-frame updates between headsets using Unity Netcode's 
+		FastBufferReader/Writers.  
 
 		
-	<h2>Depth lighting</h2>
+	<h2 id="depth-lighting">Depth lighting</h2>
 	
 	<div class="webvid">
 		<iframe src="https://www.youtube.com/embed/yxDhCg-q0JU?t=26s"
@@ -102,24 +107,7 @@
 		(alpha blended fragments that often overlap and cover the whole view)
 		and I still need to optimize them.
 		
-	<h2 id="known_issues">Known issues</h2>
-	
-	<ul>
-		<li>Moving too far will interrupt the game with a system pop-up.
-		<li>Headsets must be on the same subnet to connect.
-		<li>Meta's shared anchors are finicky and often fail.
-		<li>Players' virtual avatars will drift and dislocate
-		from their real bodies over time.
-		<li>Playspace map syncing will occasionally cause crashes.
-		<li>Depth-lights are unoptimized.
-		<li>Distant lasers and avatars are invisible due to limited depth-occlusion
-		range.
-		<li>The playspace mapper will add other players' bodies to the heightmap.
-		<li>The mapper generally needs better filtering and validation.
-		<li>All of the visuals are placeholders.
-	</ul>
-		
-	<h2>Download</h2>
+	<h2 id="download">Download</h2>
 	
 	<p>
 		The game is still pretty bare-bones. 
@@ -144,69 +132,10 @@
 		The project is available on GitHub under the MIT license.
 		Feel free to reference (or steal) code for your own projects :)
 		
-	<h2>Credits & special thanks</h2>
-	
-	<ul>
-	
-		<li><a href="https://fizzyapple12.com" target="_blank">
-		Hazel Roeder ➔</a> 
-		helped with some early programming and a ton of testing.
-		
-		<li><a href="https://strikervr.com/" target="_blank">
-		StrikerVR ➔</a> gifted two of their Mavrik haptic blasters
-		for integration. Also helped test the game. Check them out!!!
-		
-		<li>Ernesto, who drew several blaster designs that I need to finish
-		as 3D models.
-		This project is dedicated to him. We all miss you dude.
-	</ul>
-	
-		<h3>Playtesters</h3>
-	
-	<ul>
-		<li><a href="https://www.matthewstanciu.com" target="_blank">
-		Matthew Stanciu ➔</a>
-		
-		<li><a href="https://www.jackhogan.me" target="_blank">
-		Jack Hogan ➔</a>
-		
-		<li><a href="https://www.artstation.com/ratlz" target="_blank">
-		Blake Edwards ➔</a>
-		
-		<li><a href="https://discord.com/invite/Emxq4dBj8G" target="_blank">
-		MelancholySeabiscuit ➔</a>
-		
-		<li><a href="https://www.artstation.com/uninspirational" target="_blank">
-		William Yang ➔</a>
-		
-		<li><a href="https://alanocull.com" target="_blank">
-		Alan O'Cull ➔</a>
-		
-		<li><a href="https://www.rcac.purdue.edu/about/staff/gtakahas" target="_blank">
-		George Takahashi ➔</a> 
-		
-		<li>fleech
-		
-		<li><a href="https://www.codehusky.com" target="_blank">
-		Loki ➔</a>
-		
-		<li><a href="https://hellfire.tv" target="_blank">
-		Ben B. ➔</a>
-		
-		<li><a href="https://www.instagram.com/studio.maverick/" target="_blank">
-		StudioMaverick ➔</a>
-		
-		<li><a href="https://www.purduehackers.com" target="_blank">
-		Purdue Hackers ➔</a> and its members. Super helpful with
-		playstesting and a great place to hang out. 
-		
-				
-		<li><a href="https://www.linkedin.com/in/nico-uthe-961818aa/" target="_blank">
-		Nico Uthe ➔</a> and 
-		<a href="https://www.freeroam.ar/" target="_blank">
-		freeroam.ar ➔</a>.
-		They have their own mixed reality laser tag game too. Check it out!!!
-	</ul>
+	<p>
+		<a href="https://anagly.ph" target="_blank">Website ➔</a>
+		details some known issues and 
+		includes credits for other contributors and playtesters.
 
 </main>
 
