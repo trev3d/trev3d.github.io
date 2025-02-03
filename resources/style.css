@@ -94,7 +94,10 @@ iframe {
 
 a {
 	color: #FEE400;
-	
+}
+
+a:hover {
+	color: #FEE400;
 }
 
 a img {
@@ -144,7 +147,7 @@ nav {
 	margin:50px auto 50px auto;
 	position:relative;
 	
-    text-align: right;
+    text-align: center;
 	
 	font-size:0.8em;
     font-family: body, sans-serif;
@@ -162,10 +165,6 @@ nav {
 
 nav a {
     color: #ffffff;
-}
-
-nav a:hover {
-    text-decoration:underline;
 }
 
 nav ul {
@@ -262,9 +261,7 @@ main {
     left:50%;
     transform:translateX(-50%) translateY(-50%);
 	width: 70%;
-	line-height:1.1em;
-	font-size:1.1em;
-	font-family:title;
+	font-size:1.3em;
 	color:white;
 	text-decoration:none;
 }
@@ -285,7 +282,6 @@ main {
 	background-position: left bottom;
 	background-repeat: no-repeat;
 	z-index:-100;
-	display: none; 
 	*/
 	
 	display:none;
