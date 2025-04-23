@@ -18,8 +18,7 @@
 <main>
 	<h1>Nuclear engineering<br>virtual lab</h1>
 	<h3>
-		Use highly-detailed simulations of nuclear survey equipment 
-		in your web browser
+		A lab in your browser
 		<p>
 		<img class="software-icon" src="/resources/icons/unity.png">
 		<img class="software-icon" src="/resources/icons/blender.png">
@@ -38,18 +37,19 @@
 	<script src="https://player.vimeo.com/api/player.js"></script>
 	<p>
 		This is a virtual lab for nuclear engineering undergrads.
-		I'm responsible for the design, artwork, and scripting;
-		I built it on Unity with visuals done in  
-		Blender, Marmoset Toolbag, and Substance Painter.
-	</p>
+		I'm responsible for nearly the entire Unity project, 
+		from design, to artwork, to scripting & shader programming.
+		Reception among students has been very positive.
+	
 	<p>
 		Purdue University Prof. Stylianos Chatzidakis led this project to increase
 		access to curriculum-necessary lab equipment.
-	</p>
+	
 	
 	<p>
 		Completed late 2023
 	</p>
+	
 	
 	<h2>3D artwork</h2>
 	
@@ -63,14 +63,15 @@
 		</a></h3>
 	</p>
 	
+	
 	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
 	
 	<p>
-		The lab runs on the web, optimized for low-spec devices
-		such as Chromebooks and tablets.
-		All 3D assets together are ~25,000 triangles rendered across 22 draw events.
-		Download size is just under 50mb.
+		Optimized for low-spec devices such as Chromebooks and tablets.
+		All together ~25,000 triangles rendered across 22 draw events.
+		Download size is just under 50mb. 
 	</p>
+	
 	
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
 	
@@ -80,42 +81,31 @@
 			<li>I bake lighting directly into equipment textures (not separate lightmaps)
 				since each appears only once.
 			<li>Dynamic parts (dials, switches, etc) have bespoke reflection cubemaps  
-				to prevent any unoccluded specular ugliness.
-			<li>Some movable objects drop soft-shadow decals to make their 3D position
-				easier to read.
+				to kill specular ugliness.
+			<li>Some movable objects drop soft-shadow decals for clearer positioning.
 		</ul>
 	</p>
+	
 	
 	<video autoplay muted playsinline loop 
 		src="virtuallab/controls.mp4"
 		style="width:100%; max-height:300px; margin:auto;"></video>
 	
-	<p>
-		All of the equipment controls are modeled and fully functional.
-	</p>
-	
 	<a href="virtuallab/knurling.png" target="_blank"><img src="virtuallab/knurling.png"></a>
 	<a href="virtuallab/HVS.png" target="_blank"><img src="virtuallab/HVS.png"></a>
 	<a href="virtuallab/amp sca.png" target="_blank"><img src="virtuallab/amp sca.png"></a>
 	
-	<h2>Programming</h2>
-	
 	<a href="virtuallab/editor2.png" target="_blank"><img src="virtuallab/editor2.png"></a>
-	
-	<p>
-		Built in Unity, I'm responsible for all of this project's scripting
-		(except for the cable physics). 
-		Like the visuals, everything is optimized for low-spec devices.
-	</p>
 	
 	<h2>Signal processing &amp; equipment simulation</h2>
 	
 	<p>
-		Each appliance is functional and 
-		simulates all of the necessary inputs and outputs. 
-		With the help of Prof. Chatzidakis and his team, 
-		I modeled each equipment's behavior in C#.
+		Each appliance 
+		simulates all of its necessary inputs and outputs
+		according to stats and specs provided by
+		Prof. Chatzidakis and his team.
 	</p>
+	
 	
 	<video autoplay muted playsinline loop 
 			src="virtuallab/samples.mp4"
@@ -124,9 +114,11 @@
 	<p>
 		The lab targets 100,000 data samples per second,
 		each processed by the equipment.
-		Being a web-assembly app, I'm practically limited to a single CPU core.
-		Even so, low-spec devices run the simulation at full speed.
+		WebGL & WebAssembly bring some restrictions: 
+		single CPU core, no compute shaders, and no Unity burst compiler.
+		Even so, mid-spec devices run the simulation at full speed
 	</p>
+	
 	
 	<video autoplay muted playsinline loop 
 			src="virtuallab/graph.mp4"
@@ -134,26 +126,24 @@
 	
 	<p>
 		The data histogram and oscilloscope line graph displays
-		are shaders. Some equipment will write incoming 
-		data to textures that these shaders display as a graph.
-	</p>
-	
-	
-	
-	<h2>Cable visuals (obi rope)</h2>
+		are simple shaders.
+		
+	<h2>Cable visuals (Obi Rope)</h2>
 	
 	<p>
 		For cable physics I use
 		<a href="http://obi.virtualmethodstudio.com/" target="_blank">
 		Obi Rope ➔</a>.
-		My Obi settings are tuned for a decent balance between visual quality and performance.
-	</p>
+		My Obi settings are tuned for a decent balance 
+		between visual quality and performance.
+	
 	
 	<p> 
 		Cable mesh updates are expensive;
 		time increases linearly with vertex count, 
 		so I use flat ribbon meshes with cylindrical normals. 
 	</p>
+	
 	
 	<a href="virtuallab/cables.png" target="_blank"><img src="virtuallab/cables.png"></a>
 	
@@ -162,16 +152,18 @@
 		so that users can easily see where they lead.
 	</p>
 	
+	
 	<a href="virtuallab/dither.png" target="_blank"><img src="virtuallab/dither.png"></a>
 	
 	<p>
-		The cables become semi-transparent via dithering
+		The cables become semi-transparent
 		when they may obscure important elements.
 	</p>
+	
 		
 	
 	
-	<h2>User experience</h2>
+	<h2>Camera</h2>
 	
 	<p>
 		The user must not be allowed to lose draggable objects 
@@ -180,6 +172,7 @@
 		outside of the camera bounds, or while the camera is transitioning.
 	</p>
 	
+	
 	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
 	
 	<p>
@@ -187,14 +180,14 @@
 		regardless of aspect ratio (especially important since
 		the sidebar menu is resizable and affects the size of
 		the 3D view region).	
-	</p>
+	
 	
 	<p>
 		Controls must be large enough for easy interaction, 
 		so I position frames to	keep controls at sane screen-sizes. 
 		I also keep related frames
 		and controls close together.
-	</p>
+	
 
 </main>
 

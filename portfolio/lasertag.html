@@ -19,7 +19,7 @@
 
 	<h1>Lasertag</h1>
 	<h3>
-		Turn any space into a laser tag arena with a single press
+		Turn any space into a laser tag arena with a single button press
 		<p>
 		<img class="software-icon" src="/resources/icons/meta.png">
 		<img class="software-icon" src="/resources/icons/unity.png">
@@ -34,62 +34,23 @@
 	</div>
 	
 	<p>
-		<i>Lasertag</i> (one word) is an experiment in reducing the friction
-		& 'time to fun' of mixed reality games with something that 'just works.'
+		A multiplayer mixed reality game that 'just works'
+		and requires minimal setup.
+		It scans your room in real time (as a TSDF) so nobody has to go through
+		Meta's painstaking room setup process.
 		
-	<p>
-		It progressively scans and syncs room geometry 
-		between all players without any 'room setup' process 
-		and connects nearby headsets automatically.
-		
-	<p>
-		The game runs on Meta Quest 3/3s and is built on Unity using their
-		first-party Netcode for GameObjects package.
-	
-	<p><h3><a href="https://anagly.ph" target="_blank">
-	Website ➔</a></h3>
-	<p><h3><a href="https://github.com/anaglyphs/lasertag" target="_blank">
-	GitHub repo ➔</a></h3>
-		
-	<h2>Simple setup</h2>
 	<ul>
 		<li>1. Everyone puts on their headset
 		<li>2. Everyone connects to the same WiFi network
 		<li>3. Everyone launches the app
 		<li>4. One person presses the 'host' button
 	</ul>
-	
-	<p>
-		From there, all nearby headsets (should) connect and colocate automatically.
-		
-	<h2 id="room-mapping">Room mapping</h2>
-	<h3>Progressive and network-synced</h3>
 			
-	<div class="webvid">
-		<iframe src="https://www.youtube.com/embed/oJ_fFONAEQ4"
-			allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-			allowfullscreen></iframe>
-	</div>
-		
-	<p>I use Quest's depth texture to progressively
-		scan the playspace (rooms, walls, furniture, etc.) and build a 
-		heightmap that I also sync between all headsets.
-		This means that if Headset #1 isn't close enough to see what Headset #2 
-		is hiding behind, #2 will still tell #1 that something is there.
-		
-	<p>Currently, I only use this network-synced heightmap 
-		for bullet collision, but I plan on testing everything 
-		from fire-spreading molotovs to a Splatoon-like game mode.
-		
-	<p>For each headset, a compute kernel samples the Quest's depth texture 
-		and writes to a per-frame uint32 heightmap texture using InterlockedMax
-		and some filtering rules (such as ignoring depth-samples with 
-		extreme gradients as edges).
-		I then write this to a persistent float texture, as well as 
-		stream the per-frame updates between headsets using Unity Netcode's 
-		FastBufferReader/Writers.  
-
-		
+	<p><h3><a href="https://anagly.ph" target="_blank">
+	Website ➔</a></h3>
+	<p><h3><a href="https://github.com/anaglyphs/lasertag" target="_blank">
+	GitHub repo ➔</a></h3>
+	
 	<h2 id="depth-lighting">Depth lighting</h2>
 	
 	<div class="webvid">
@@ -99,43 +60,11 @@
 	</div>
 	
 	<p>
-		Laser's lights are inverted sphere meshes with a depth/normal-sampling shader.
-		They're like rudimentary deferred point lights.
-		
-	<p>
-		These are expensive 
-		(alpha blended fragments that often overlap and cover the whole view)
-		and I still need to optimize them.
-		
-	<h2 id="download">Download</h2>
-	
-	<p>
-		The game is still pretty bare-bones. 
-		There are no objectives, rounds, teams, etc.
-		Only you, your friends, and laser guns.
-		If you'd like to try it out, you can join the beta release channel:
-	
-	<p>
-	<h3><a href="https://www.meta.com/s/59aIPXxXi" target="_blank">
-		Beta Release Channel ➔
-	</a></h3>
-	
-	<p>
-		<a href="https://discord.gg/DgTqG5A6BD" target="_blank">
-		Discord ➔</a>
-		If you run into <i>any</i> issues or have any feedback, please
-		reach out by email or join the discord.
-		
-	<p>
-		<a href="https://github.com/anaglyphs/lasertag" target="_blank">
-		GitHub repo ➔</a>
-		The project is available on GitHub under the MIT license.
-		Feel free to reference (or steal) code for your own projects :)
-		
-	<p>
-		<a href="https://anagly.ph" target="_blank">Website ➔</a>
-		details some known issues and 
-		includes credits for other contributors and playtesters.
+		These are depth & normal-sampling inverted spheres. 
+		Alpha blended at often covering the entire view, 
+		these can really tank performance.
+		I'm looking into faster shading techniques.
+	</p>
 
 </main>
 

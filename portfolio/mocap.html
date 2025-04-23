@@ -36,10 +36,9 @@
 			allowfullscreen></iframe>
 	</div>
 	<p>
-		This is a prototype VR game where
-		two players fight with foam swords on a motion capture stage.
-		The mocap data is streamed to the VR headsets to drive 
-		lightsabers and full-body characters in VR.
+		Prototype where two players fight with foam swords 
+		on a motion capture stage. 
+		Virtual graphics overlayed onto physical play.
 	</p>
 	
 	<a href="mocap/fight2.png" target="_blank"><img src="mocap/fight2.png"></a>
@@ -57,39 +56,28 @@
 	
 	<p>
 		OptiTrack's
-		official plugin for Unity annoyingly supports neither 1:1 skeletal
-		tracking nor Android &amp; Meta Quest. 
+		official plugin for Unity does not support 1:1 skeletal
+		tracking or Android &amp; Meta Quest. 
+		I couldn't use it for this.
+	
+	<p>
 		I instead modified an old 
 		<a href="https://github.com/XmanLCH/MotiveDirect" target="_blank">
 			third-party plugin compatible with Android ➔</a> 
-		to support 1:1 skeletal tracking
-		and the latest version of OptiTrack's NatNet API.
+		to support 1:1 skeletal tracking.
 	</p>
 	
 	<a href="mocap/swords.jpg" target="_blank"><img src="mocap/swords.jpg"></a>
 	
 	<p>
-		While OptiTrack supports VR headset tracking, 
-		the Quest headset already tracks itself and with much less latency.
-		I initially calibrate the headset to stage space once.
-		The headset is responsible for its own tracking from then on.
+		The markers on the headset are only for initial stage calibration.
+		I still rely on Quest's native tracking.
 	</p>
 	
-	<h2>Visuals</h2>
 	
 	<a href="mocap/snapshot1.png" target="_blank"><img src="mocap/snapshot1.png"></a>
 	
 	<a href="mocap/scene1.png" target="_blank"><img src="mocap/scene1.png"></a>
-	
-	<h2>Thanks</h2>
-	<p>
-		I'd like to thank my friends 
-		<a href="https://fizzyapple12.com/" target="_blank">Hazel ➔</a>
-		&
-		<a href="https://www.matthewstanciu.com/" target="_blank">Matthew ➔</a>
-		for testing and also coming on a late-night run to buy pool noodles for the swords. 
-		Thank you!
-	</p>
 	
 	<p>
 		I threw together several CC0 assets from 
@@ -99,6 +87,17 @@
 		The robot model is a 
 		<a href="https://assetstore.unity.com/packages/3d/characters/robots/robot-kyle-urp-4696" target="_blank">
 			Unity standard asset ➔</a>.
+	</p>
+	
+	<h2>Thanks</h2>
+	<p>
+		<a href="https://fizzyapple12.com/" target="_blank">Hazel ➔</a>
+		&
+		<a href="https://www.matthewstanciu.com/" target="_blank">Matthew ➔</a>
+		for testing and also coming on a midnight run 
+		to Dicks' sporting goods to buy 
+		overpriced pool noodles for prototype swords. 
+		Thank you!
 	</p>
 
 </main>
