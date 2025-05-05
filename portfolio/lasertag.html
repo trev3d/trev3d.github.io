@@ -36,8 +36,6 @@
 	<p>
 		A multiplayer mixed reality game that 'just works'
 		and requires minimal setup.
-		It scans your room in real time (as a TSDF) so nobody has to go through
-		Meta's painstaking room setup process.
 		
 	<ul>
 		<li>1. Everyone puts on their headset
@@ -51,7 +49,41 @@
 	<p><h3><a href="https://github.com/anaglyphs/lasertag" target="_blank">
 	GitHub repo ➔</a></h3>
 	
-	<h2 id="depth-lighting">Depth lighting</h2>
+	<h2 id="scanning">Continuous environment scanning</h2>
+	
+	<div class="webvid verticalvid">
+		<iframe src="https://player.vimeo.com/video/1081544753?
+		autoplay=1&loop=1&color=fee400&byline=0&portrait=0&muted=1"
+		allow="autoplay; fullscreen; picture-in-picture" 
+		style = "height:100%;"allowfullscreen></iframe>
+	</div>
+	
+	<p>
+		The game continuously scans players' environment 
+		without any prior setup.
+		This reduces friction & time-to-fun and means the game
+		responds to environment changes (i.e. doors opening and closing)
+	
+	<p>
+		This works by projecting depth frames
+		into a large TSDF 3D texture.
+		Bullets raymarch through the TSDF to detect collisions.
+		
+	<p>
+		I'd eventually like to use the TSDF for 
+		multiplayer localization and drift correction, but I'm still
+		getting a handle on some necessary mathematics.
+		
+	<p>
+		While Lasertag doesn't yet feature this,
+		I'm also experimenting with meshing 
+		for use with physics & NPC pathfinding.
+		
+	<p>
+		<a href="https://www.uploadvr.com/developer-implemented-continuous-scene-meshing-quest-3-lasertag/"
+		target="_blank"> UploadVR covered this in an article ➔</a>
+	
+	<h2 id="depth-lighting">Environment shading</h2>
 	
 	<div class="webvid">
 		<iframe src="https://www.youtube.com/embed/yxDhCg-q0JU?t=26s"
@@ -60,11 +92,15 @@
 	</div>
 	
 	<p>
-		These are depth & normal-sampling inverted spheres. 
-		Alpha blended at often covering the entire view, 
-		these can really tank performance.
-		I'm looking into faster shading techniques.
+		Laser bullets glow and cast light on the real environment using inverted spheres 
+		that sample environment depth & normals. 
+	
+	<p>
+		Because they're alpha-blended and often cover the entire
+		view, these can cause frame drops. I'm investigating faster
+		techniques.
 	</p>
+	
 
 </main>
 
