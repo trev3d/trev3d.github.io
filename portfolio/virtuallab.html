@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>Julian Triveri Portfolio</title>
 	<link rel="stylesheet" href="/resources/style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body>
@@ -18,176 +18,178 @@
 <main>
 	<h1>Nuclear engineering<br>virtual lab</h1>
 	<h3>
-		A lab in your browser
+		A nuclear physics lab in your browser
 		<p>
 		<img class="software-icon" src="/resources/icons/unity.png">
 		<img class="software-icon" src="/resources/icons/blender.png">
 		<img class="software-icon" src="/resources/icons/marmoset.png">
 		<img class="software-icon" src="/resources/icons/substance.png">
 		<img class="software-icon" src="/resources/icons/git.png">
-	
+
 	</h3>
-	
+
 	<div class="webvid">
 	<iframe src="https://player.vimeo.com/video/891968434?h=dddc621
 	&autoplay=1&loop=1&color=fee400&byline=0&portrait=0&muted=1"
 			allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 	</div>
-			
+
 	<script src="https://player.vimeo.com/api/player.js"></script>
 	<p>
-		This is a virtual lab for nuclear engineering undergrads.
-		I'm responsible for nearly the entire Unity project, 
+		This is a virtual lab for Purdue University
+		nuclear engineering undergrads.
+		I'm responsible for nearly the entire Unity project,
 		from design, to artwork, to scripting & shader programming.
 		Reception among students has been very positive.
-	
+
 	<p>
-		Purdue University Prof. Stylianos Chatzidakis led this project to increase
+		Purdue University Prof. Stylianos Chatzidakis served as P.I.
+	 	and led this project to increase
 		access to curriculum-necessary lab equipment.
-	
-	
+
+
 	<p>
-		Completed late 2023
+		Project is ongoing...
 	</p>
-	
-	
+
+
 	<h2>3D artwork</h2>
-	
+
 	<div class="webvid verticalvid">
 		<iframe src="virtuallab/tbexport.html"></iframe>
 	</div>
-	
+
 	<p>
 		<h3><a href="virtuallab/tbexport.html" target="_blank">
 			Fullscreen ➔
 		</a></h3>
 	</p>
-	
-	
+
+
 	<a href="virtuallab/real.jpg" target="_blank"><img src="virtuallab/real.jpg"></a>
-	
+
 	<p>
 		Optimized for low-spec devices such as Chromebooks and tablets.
 		All together ~25,000 triangles rendered across 22 draw events.
-		Download size is just under 50mb. 
+		Download size is just under 50mb.
 	</p>
-	
-	
+
+
 	<a href="virtuallab/Screenshot_2.png" target="_blank"><img src="virtuallab/Screenshot_2.png"></a>
-	
+
 	<p>
 		<ul>
 			<li>Texel density is lower on obscure & unseen surfaces.
 			<li>I bake lighting directly into equipment textures (not separate lightmaps)
 				since each appears only once.
-			<li>Dynamic parts (dials, switches, etc) have bespoke reflection cubemaps  
+			<li>Dynamic parts (dials, switches, etc) have bespoke reflection cubemaps
 				to kill specular ugliness.
 			<li>Some movable objects drop soft-shadow decals for clearer positioning.
 		</ul>
 	</p>
-	
-	
-	<video autoplay muted playsinline loop 
+
+
+	<video autoplay muted playsinline loop
 		src="virtuallab/controls.mp4"
 		style="width:100%; max-height:300px; margin:auto;"></video>
-	
+
 	<a href="virtuallab/knurling.png" target="_blank"><img src="virtuallab/knurling.png"></a>
 	<a href="virtuallab/HVS.png" target="_blank"><img src="virtuallab/HVS.png"></a>
 	<a href="virtuallab/amp sca.png" target="_blank"><img src="virtuallab/amp sca.png"></a>
-	
+
 	<a href="virtuallab/editor2.png" target="_blank"><img src="virtuallab/editor2.png"></a>
-	
+
 	<h2>Signal processing &amp; equipment simulation</h2>
-	
+
 	<p>
-		Each appliance 
+		Each appliance
 		simulates all of its necessary inputs and outputs
 		according to stats and specs provided by
 		Prof. Chatzidakis and his team.
 	</p>
-	
-	
-	<video autoplay muted playsinline loop 
+
+
+	<video autoplay muted playsinline loop
 			src="virtuallab/samples.mp4"
 			style="width:100%; max-height:300px; margin:auto;"></video>
-	
+
 	<p>
 		The lab targets 100,000 data samples per second,
 		each processed by the equipment.
-		WebGL & WebAssembly bring some restrictions: 
+		WebGL & WebAssembly bring some restrictions:
 		single CPU core, no compute shaders, and no Unity burst compiler.
 		Even so, mid-spec devices run the simulation at full speed
 	</p>
-	
-	
-	<video autoplay muted playsinline loop 
+
+
+	<video autoplay muted playsinline loop
 			src="virtuallab/graph.mp4"
 			style="width:100%; max-height:300px; margin:auto;"></video>
-	
+
 	<p>
 		The data histogram and oscilloscope line graph displays
 		are simple shaders.
-		
+
 	<h2>Cable visuals (Obi Rope)</h2>
-	
+
 	<p>
 		For cable physics I use
 		<a href="http://obi.virtualmethodstudio.com/" target="_blank">
 		Obi Rope ➔</a>.
-		My Obi settings are tuned for a decent balance 
+		My Obi settings are tuned for a decent balance
 		between visual quality and performance.
-	
-	
-	<p> 
+
+
+	<p>
 		Cable mesh updates are expensive;
-		time increases linearly with vertex count, 
-		so I use flat ribbon meshes with cylindrical normals. 
+		time increases linearly with vertex count,
+		so I use flat ribbon meshes with cylindrical normals.
 	</p>
-	
-	
+
+
 	<a href="virtuallab/cables.png" target="_blank"><img src="virtuallab/cables.png"></a>
-	
+
 	<p>
 		Cable colors are random
 		so that users can easily see where they lead.
 	</p>
-	
-	
+
+
 	<a href="virtuallab/dither.png" target="_blank"><img src="virtuallab/dither.png"></a>
-	
+
 	<p>
 		The cables become semi-transparent
 		when they may obscure important elements.
 	</p>
-	
-		
-	
-	
+
+
+
+
 	<h2>Camera</h2>
-	
+
 	<p>
-		The user must not be allowed to lose draggable objects 
-		behind other objects or off screen, so 
+		The user must not be allowed to lose draggable objects
+		behind other objects or off screen, so
 		I don't allow dropping objects behind UI elements,
 		outside of the camera bounds, or while the camera is transitioning.
 	</p>
-	
-	
+
+
 	<a href="virtuallab/editor3.png" target="_blank"><img src="virtuallab/editor3.png"></a>
-	
+
 	<p>
-		Camera 'frames' keep important objects in view 
+		Camera 'frames' keep important objects in view
 		regardless of aspect ratio (especially important since
 		the sidebar menu is resizable and affects the size of
-		the 3D view region).	
-	
-	
+		the 3D view region).
+
+
 	<p>
-		Controls must be large enough for easy interaction, 
-		so I position frames to	keep controls at sane screen-sizes. 
+		Controls must be large enough for easy interaction,
+		so I position frames to	keep controls at sane screen-sizes.
 		I also keep related frames
 		and controls close together.
-	
+
 
 </main>
 
